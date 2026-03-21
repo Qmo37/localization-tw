@@ -1,4 +1,6 @@
-# localization-tw — 繁體中文（臺灣）在地化技能
+# localization-tw — 正體中文（臺灣）在地化技能
+
+> 正體中文（Traditional Chinese），又稱繁體中文，為臺灣官方使用的標準漢字書寫形式。本技能以「正體中文」為正式名稱，並以臺灣華語慣用方式為規範。
 
 Claude Code 的在地化翻譯技能，確保 AI 產出的中文內容符合臺灣華語母語者的用詞習慣，避免中國用語與簡體直譯。
 
@@ -9,7 +11,7 @@ Claude Code 的在地化翻譯技能，確保 AI 產出的中文內容符合臺�
 - **領域污染檢查**：按電腦資訊、日常生活、娛樂、政經、交通等領域，主動檢查中國用語殘留
 - **兩岸詞彙資料庫**：整合[中華語文知識庫](https://www.chinese-linguipedia.org/search_difference.html) 4,800+ 筆兩岸差異用詞，可用 Grep 即時查詢
 - **完整翻譯工作流程**：理解→翻譯→校對→潤飾四步驟，附品質檢查清單
-- **語言參考文件**：繁體中文、英文、日文各自的語言特性與翻譯策略
+- **語言參考文件**：正體中文、英文、日文各自的語言特性與翻譯策略
 
 ## 安裝
 
@@ -70,7 +72,7 @@ localization-tw/
 ├── references/
 │   ├── vocabulary.md                 # 臺灣用語對照表（名詞、動詞、句式、標點）
 │   ├── linguipedia-cross-strait.md   # 兩岸差異用詞（4,800+ 筆，腳本產生）
-│   ├── chinese-traditional.md        # 繁體中文語言特性
+│   ├── chinese-traditional.md        # 正體中文語言特性
 │   ├── english.md                    # 英文語言特性
 │   └── japanese.md                   # 日文語言特性
 ├── translation-challenges.md         # 常見翻譯挑戰範例與解法
@@ -95,21 +97,26 @@ localization-tw/
 
 本技能基於以下兩個開源技能合併、修改而成：
 
-- **[translation-expertise](https://agentskills.so/zh/skills/shino369-claude-code-personal-workspace-translation-expertise)** by [shino369](https://github.com/shino369/claude-code-personal-workspace) — 英日中（繁體）三語翻譯方法論與最佳實踐
-- **[taiwan-traditional-chinese-localization](https://mcpmarket.com/zh/tools/skills/taiwan-traditional-chinese-localization)** — 臺灣繁體中文在地化規範
+- **[translation-expertise](https://agentskills.so/zh/skills/shino369-claude-code-personal-workspace-translation-expertise)** by [shino369](https://github.com/shino369/claude-code-personal-workspace) — 英日中（正體）三語翻譯方法論與最佳實踐
+- **[taiwan-traditional-chinese-localization](https://mcpmarket.com/zh/tools/skills/taiwan-traditional-chinese-localization)** — 臺灣正體中文在地化規範
 
 兩岸差異用詞資料來源：[中華語文知識庫](https://www.chinese-linguipedia.org/)
+Copyright &copy; [中華文化總會](https://www.gacc.org.tw/)（National Cultural Association of Taiwan, NCAT）版權所有。本技能引用其公開資料僅供學術與翻譯參考用途。
 
 ## 授權
 
-MIT License
+本技能程式碼以 MIT License 釋出。
+
+兩岸詞彙資料庫內容之著作權屬中華文化總會所有，使用時請遵守其授權條款。
 
 ---
 
 <details>
 <summary><strong>🌐 English Version</strong></summary>
 
-# localization-tw — Traditional Chinese (Taiwan) Localization Skill
+# localization-tw — Standard/Traditional Chinese (Taiwan) Localization Skill
+
+> In Taiwan, the official writing system is called 正體中文 (Standard Chinese / Orthodox Chinese), commonly referred to internationally as Traditional Chinese (繁體中文). This skill uses "Standard Chinese" as the formal name.
 
 A Claude Code skill for localization and translation, ensuring AI-generated Chinese content follows Taiwanese Mandarin conventions and avoids mainland Chinese (CN) terms.
 
@@ -212,13 +219,16 @@ The skill actively checks for CN term contamination based on the translation dom
 
 This skill was created by combining and extending two open-source skills:
 
-- **[translation-expertise](https://agentskills.so/zh/skills/shino369-claude-code-personal-workspace-translation-expertise)** by [shino369](https://github.com/shino369/claude-code-personal-workspace) — Expert EN-JA-ZH(Traditional) trilingual translation methodology and best practices
-- **[taiwan-traditional-chinese-localization](https://mcpmarket.com/zh/tools/skills/taiwan-traditional-chinese-localization)** — Taiwan Traditional Chinese localization standards
+- **[translation-expertise](https://agentskills.so/zh/skills/shino369-claude-code-personal-workspace-translation-expertise)** by [shino369](https://github.com/shino369/claude-code-personal-workspace) — Expert EN-JA-ZH (Standard/Traditional) trilingual translation methodology and best practices
+- **[taiwan-traditional-chinese-localization](https://mcpmarket.com/zh/tools/skills/taiwan-traditional-chinese-localization)** — Taiwan Standard Chinese localization standards
 
 Cross-strait vocabulary data source: [Chinese Linguipedia (中華語文知識庫)](https://www.chinese-linguipedia.org/)
+Copyright &copy; [National Cultural Association of Taiwan (中華文化總會, NCAT)](https://www.gacc.org.tw/). Data referenced for academic and translation purposes only.
 
 ## License
 
-MIT License
+This skill's code is released under the MIT License.
+
+The cross-strait vocabulary database content is copyrighted by the National Cultural Association of Taiwan (NCAT). Please comply with their terms of use.
 
 </details>
