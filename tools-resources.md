@@ -444,6 +444,17 @@ This document provides a curated list of dictionaries, corpora, grammar referenc
 - Japanese and Chinese available
 - Free
 
+**termic.me** (https://termic.me/)
+
+- Open-source replacement for Microsoft Terminology Search
+- Access to Microsoft Glossary (standardized term pairs with definitions and POS)
+- Access to Microsoft Translation Memory (actual shipped product strings)
+- EN↔zh_TW fully supported
+- Supports exact, fuzzy, and regex search
+- 2017 and 2020+ dataset periods
+- Source: https://github.com/spidersouris/termic
+- Integration: `python3 scripts/fetch-microsoft-terms.py <term>`
+
 **Apple Style Guide**
 
 - Available to developers
@@ -509,6 +520,9 @@ When working on a translation, keep these resources handy:
 
 **For Specialized Terms**:
 
+- [ ] `python3 scripts/search.py <term> --online` (unified search: local + Microsoft)
+- [ ] `python3 scripts/fetch-microsoft-terms.py <term>` (Microsoft Glossary + TM)
+- [ ] termic.me (web interface for Microsoft terminology)
 - [ ] Microsoft Language Portal
 - [ ] Weblio (Japanese technical terms)
 - [ ] MOE Dictionary (Chinese official terms)

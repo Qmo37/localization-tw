@@ -32,6 +32,12 @@ PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 DEFAULT_OUTPUT = os.path.join(PROJECT_DIR, "references", "linguipedia-cross-strait.md")
 
 
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
+)
+
+
 def fetch_page(page, type_filter="", max_retries=3, delay=0.3):
     """Fetch a single page from the API. Returns parsed JSON."""
     params = {
@@ -44,7 +50,10 @@ def fetch_page(page, type_filter="", max_retries=3, delay=0.3):
 
     for attempt in range(max_retries):
         try:
-            req = urllib.request.Request(url, headers={"Accept": "application/json"})
+            req = urllib.request.Request(url, headers={
+                "Accept": "application/json",
+                "User-Agent": USER_AGENT,
+            })
             with urllib.request.urlopen(req, timeout=30) as resp:
                 return json.loads(resp.read().decode("utf-8"))
         except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError) as e:
@@ -56,10 +65,13 @@ def fetch_page(page, type_filter="", max_retries=3, delay=0.3):
                 raise RuntimeError(f"Failed to fetch page {page} after {max_retries} attempts: {e}")
 
 
-def fetch_all(type_filter="", delay=0.3):
-    """Fetch all pages from the API. Returns list of all items."""
-    print("Fetching page 1...", file=sys.stderr)
-    first = fetch_page(1, type_filter=type_filter)
+def fetch_all(type_filter="", delay=0.3, start_page=1, partial_save_path=None):
+    """Fetch all pages from the API. Returns list of all items.
+
+    Saves partial results to partial_save_path on error so progress isn't lost.
+    """
+    print(f"Fetching page {start_page}...", file=sys.stderr)
+    first = fetch_page(start_page, type_filter=type_filter)
 
     if not first.get("status"):
         raise RuntimeError(f"API returned error: {first}")
@@ -71,12 +83,21 @@ def fetch_all(type_filter="", delay=0.3):
 
     print(f"Total: {total} items, {last_page} pages", file=sys.stderr)
 
-    for page in range(2, last_page + 1):
+    for page in range(start_page + 1, last_page + 1):
         if page % 20 == 0 or page == last_page:
             print(f"  Fetching page {page}/{last_page}...", file=sys.stderr)
         time.sleep(delay)
-        result = fetch_page(page, type_filter=type_filter, delay=delay)
-        items.extend(result["data"]["data"])
+        try:
+            result = fetch_page(page, type_filter=type_filter, delay=delay)
+            items.extend(result["data"]["data"])
+        except RuntimeError as e:
+            print(f"\nError on page {page}: {e}", file=sys.stderr)
+            if partial_save_path and items:
+                save_cache(items, partial_save_path)
+                print(f"Partial results ({len(items)} items) saved. "
+                      f"Resume with: --from-cache {partial_save_path} "
+                      f"or retry with: --start-page {page}", file=sys.stderr)
+            raise
 
     print(f"Fetched {len(items)} items total", file=sys.stderr)
     return items
@@ -88,6 +109,21 @@ def load_cache(path):
         items = json.load(f)
     print(f"Loaded {len(items)} items from cache: {path}", file=sys.stderr)
     return items
+
+
+def merge_caches(paths):
+    """Merge multiple cache files, deduplicating by tw_word+cn_word."""
+    seen = set()
+    merged = []
+    for path in paths:
+        items = load_cache(path)
+        for item in items:
+            key = (item.get("tw_word", ""), item.get("cn_word", ""))
+            if key not in seen:
+                seen.add(key)
+                merged.append(item)
+    print(f"Merged {len(merged)} unique items from {len(paths)} files", file=sys.stderr)
+    return merged
 
 
 def save_cache(items, path):
@@ -200,17 +236,38 @@ def main():
         help="Read items from a local JSON cache instead of fetching from API",
     )
     parser.add_argument(
+        "--merge-cache",
+        metavar="FILE",
+        nargs="+",
+        help="Merge multiple cache files (dedup by tw_word+cn_word)",
+    )
+    parser.add_argument(
         "--save-cache",
         metavar="FILE",
         help="Save fetched items to a JSON cache file (for offline reuse)",
     )
+    parser.add_argument(
+        "--start-page",
+        type=int,
+        default=1,
+        help="Start fetching from this page (for resuming after errors)",
+    )
     args = parser.parse_args()
 
+    partial_path = args.save_cache or "cache-partial.json"
+
     # Load or fetch items
-    if args.from_cache:
+    if args.merge_cache:
+        items = merge_caches(args.merge_cache)
+    elif args.from_cache:
         items = load_cache(args.from_cache)
     else:
-        items = fetch_all(type_filter=args.type_filter, delay=args.delay)
+        items = fetch_all(
+            type_filter=args.type_filter,
+            delay=args.delay,
+            start_page=args.start_page,
+            partial_save_path=partial_path,
+        )
 
     # Apply type filter to cached data (API filter already applied for live fetch)
     if args.from_cache and args.type_filter:

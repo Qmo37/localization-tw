@@ -9,7 +9,10 @@ Claude Code 的在地化翻譯技能，確保 AI 產出的中文內容符合臺�
 - **EN↔zh-TW 雙向翻譯**，也支援 EN↔JA↔zh-TW 三語翻譯
 - **用詞規範**：內建臺灣 vs. 中國用語對照表（40+ 高頻詞彙速查）
 - **領域污染檢查**：按電腦資訊、日常生活、娛樂、政經、交通等領域，主動檢查中國用語殘留
-- **兩岸詞彙資料庫**：整合[中華語文知識庫](https://www.chinese-linguipedia.org/search_difference.html) 4,800+ 筆兩岸差異用詞，可用 Grep 即時查詢
+- **兩岸詞彙資料庫**：整合[中華語文知識庫](https://www.chinese-linguipedia.org/search_difference.html) 4,800+ 筆兩岸差異用詞
+- **教育部辭典整合**：透過 [g0v/moedict-data](https://github.com/g0v/moedict-data) 為 357 筆日常用語加注注音、權威定義
+- **Microsoft 術語庫**：透過 [termic.me](https://termic.me/) 查詢 Microsoft Glossary 與 Translation Memory 的 EN↔zh_TW 譯法（含詞性、定義、產品上下文）
+- **統一搜尋工具**：一次搜尋所有本地詞庫＋線上 Microsoft 術語，支援精確、模糊、正規表達式
 - **完整翻譯工作流程**：理解→翻譯→校對→潤飾四步驟，附品質檢查清單
 - **語言參考文件**：正體中文、英文、日文各自的語言特性與翻譯策略
 
@@ -43,6 +46,33 @@ cp -r localization-tw ~/.claude/skills/
 ✅ 伺服器回傳的資料需要解析
 ```
 
+## 術語查詢工具
+
+翻譯時遇到不確定的詞彙，可用以下工具查詢：
+
+```bash
+# 統一搜尋（本地所有詞庫）
+python3 scripts/search.py 軟體
+python3 scripts/search.py "interface" --mode exact
+
+# 統一搜尋 + Microsoft 術語（需網路）
+python3 scripts/search.py "server" --online
+
+# 直接查 Microsoft 術語庫（Glossary + Translation Memory）
+python3 scripts/fetch-microsoft-terms.py "database"
+python3 scripts/fetch-microsoft-terms.py "介面" --reverse  # zh_TW→EN
+
+# 查教育部辭典（注音、定義、例句）
+python3 scripts/enrich-from-moedict.py --lookup "軟體,捷運,番茄"
+
+# 批次查詢
+python3 scripts/fetch-microsoft-terms.py --batch terms.txt --output glossary.md
+```
+
+Microsoft 術語資料來自 [termic.me](https://termic.me/)（開源 Microsoft Terminology Search 替代方案），提供微軟產品實際採用的 zh_TW 譯法，含詞性標注、英文定義、產品來源。
+
+教育部辭典資料來自 [g0v/moedict-data](https://github.com/g0v/moedict-data)（教育部重編國語辭典修訂本 CC BY-ND 3.0 TW），提供注音、權威定義與例句。首次執行會自動下載約 14 MB 的辭典資料。
+
 ## 兩岸詞彙資料庫
 
 內建抓取腳本可從中華語文知識庫取得完整兩岸差異用詞：
@@ -60,9 +90,12 @@ python3 scripts/fetch-linguipedia.py --dry-run
 # 儲存原始 JSON 以便離線使用
 python3 scripts/fetch-linguipedia.py --save-cache cache.json
 python3 scripts/fetch-linguipedia.py --from-cache cache.json
+
+# 合併多次抓取的部分結果
+python3 scripts/fetch-linguipedia.py --merge-cache cache1.json cache2.json
 ```
 
-抓取後的資料會存入 `references/linguipedia-cross-strait.md`，依子分類分節呈現。由於檔案較大，翻譯時建議用 Grep 搜尋特定詞彙，而非全文載入。
+抓取後的資料會存入 `references/linguipedia-cross-strait.md`，依子分類分節呈現。由於檔案較大，翻譯時建議用 `search.py` 搜尋或直接 Grep 特定詞彙，而非全文載入。
 
 ## 檔案結構
 
@@ -78,7 +111,10 @@ localization-tw/
 ├── translation-challenges.md         # 常見翻譯挑戰範例與解法
 ├── tools-resources.md                # 辭典、語料庫、工具彙整
 └── scripts/
-    └── fetch-linguipedia.py          # 中華語文知識庫抓取腳本
+    ├── fetch-linguipedia.py          # 中華語文知識庫抓取腳本
+    ├── fetch-microsoft-terms.py      # Microsoft 術語查詢腳本（via termic.me）
+    ├── enrich-from-moedict.py        # 教育部辭典整合腳本（注音、定義）
+    └── search.py                     # 統一術語搜尋工具
 ```
 
 ## 領域污染嚴重程度
@@ -103,6 +139,10 @@ localization-tw/
 兩岸差異用詞資料來源：[中華語文知識庫](https://www.chinese-linguipedia.org/)
 Copyright &copy; [中華文化總會](https://www.gacc.org.tw/)（National Cultural Association of Taiwan, NCAT）版權所有。本技能引用其公開資料僅供學術與翻譯參考用途。
 
+Microsoft 術語查詢由 [termic.me](https://termic.me/) 提供（[GitHub](https://github.com/spidersouris/termic)，MIT License）。
+
+教育部辭典資料來自 [g0v/moedict-data](https://github.com/g0v/moedict-data)。內容著作權屬教育部所有（CC BY-ND 3.0 TW），JSON 格式由 @kcwu 轉換（CC0）。
+
 ## 授權
 
 本技能程式碼以 MIT License 釋出。
@@ -125,7 +165,10 @@ A Claude Code skill for localization and translation, ensuring AI-generated Chin
 - **EN↔zh-TW bidirectional translation**, with EN↔JA↔zh-TW trilingual support
 - **Terminology standards**: Built-in Taiwan vs. China vocabulary reference (40+ high-frequency terms)
 - **Domain-aware pollution checking**: Actively flags CN term contamination across IT, daily life, entertainment, politics, transportation domains
-- **Cross-strait vocabulary database**: Integrated with [Chinese Linguipedia](https://www.chinese-linguipedia.org/search_difference.html) — 4,800+ cross-strait terminology entries, searchable via Grep
+- **Cross-strait vocabulary database**: Integrated with [Chinese Linguipedia](https://www.chinese-linguipedia.org/search_difference.html) — 4,800+ cross-strait terminology entries
+- **MOE Dictionary integration**: 357 daily-use terms enriched with bopomofo and authoritative definitions via [g0v/moedict-data](https://github.com/g0v/moedict-data)
+- **Microsoft Terminology**: Query Microsoft Glossary & Translation Memory for EN↔zh_TW via [termic.me](https://termic.me/) — with POS, definitions, and product context
+- **Unified search tool**: Search all local vocabularies + online Microsoft terminology in one command (exact, fuzzy, regex)
 - **Complete translation workflow**: Understand → Translate → Proofread → Polish, with a quality checklist
 - **Language reference files**: Linguistic characteristics and translation strategies for Traditional Chinese, English, and Japanese
 
@@ -165,6 +208,33 @@ Once installed, Claude Code automatically applies this skill when handling Chine
    (TW: 伺服器, 資料, concise phrasing)
 ```
 
+## Terminology Search Tools
+
+Use these tools to look up uncertain terms during translation:
+
+```bash
+# Unified search (all local vocabularies)
+python3 scripts/search.py 軟體
+python3 scripts/search.py "interface" --mode exact
+
+# Unified search + Microsoft terminology (requires network)
+python3 scripts/search.py "server" --online
+
+# Query Microsoft terminology directly (Glossary + Translation Memory)
+python3 scripts/fetch-microsoft-terms.py "database"
+python3 scripts/fetch-microsoft-terms.py "介面" --reverse  # zh_TW→EN
+
+# Look up MOE Dictionary (bopomofo, definitions, examples)
+python3 scripts/enrich-from-moedict.py --lookup "軟體,捷運,番茄"
+
+# Batch query
+python3 scripts/fetch-microsoft-terms.py --batch terms.txt --output glossary.md
+```
+
+Microsoft terminology data is sourced from [termic.me](https://termic.me/) (open-source Microsoft Terminology Search replacement), providing actual zh_TW translations used in Microsoft products, with POS, English definitions, and product source.
+
+MOE Dictionary data is sourced from [g0v/moedict-data](https://github.com/g0v/moedict-data) (教育部重編國語辭典修訂本, CC BY-ND 3.0 TW), providing bopomofo, authoritative definitions, and usage examples. The dictionary (~14 MB) is automatically downloaded on first use.
+
 ## Cross-Strait Vocabulary Database
 
 A built-in script fetches the complete cross-strait terminology database from Chinese Linguipedia:
@@ -182,9 +252,12 @@ python3 scripts/fetch-linguipedia.py --dry-run
 # Save/load raw JSON for offline use
 python3 scripts/fetch-linguipedia.py --save-cache cache.json
 python3 scripts/fetch-linguipedia.py --from-cache cache.json
+
+# Merge partial fetches
+python3 scripts/fetch-linguipedia.py --merge-cache cache1.json cache2.json
 ```
 
-Output is saved to `references/linguipedia-cross-strait.md`, organized by subcategory. Since the file is large, use Grep to search for specific terms during translation rather than loading the full file.
+Output is saved to `references/linguipedia-cross-strait.md`, organized by subcategory. Since the file is large, use `search.py` or Grep to search for specific terms during translation rather than loading the full file.
 
 ## File Structure
 
@@ -193,6 +266,7 @@ localization-tw/
 ├── SKILL.md                          # Main skill definition (workflow, quick ref, checklist)
 ├── references/
 │   ├── vocabulary.md                 # TW vs CN vocabulary table (nouns, verbs, grammar, punctuation)
+│   ├── vocabulary-enriched.md        # Enriched: core + 357 daily terms with bopomofo & MOE definitions
 │   ├── linguipedia-cross-strait.md   # Cross-strait terms (4,800+, script-generated)
 │   ├── chinese-traditional.md        # Traditional Chinese linguistic reference
 │   ├── english.md                    # English linguistic reference
@@ -200,7 +274,10 @@ localization-tw/
 ├── translation-challenges.md         # Common translation challenges with examples
 ├── tools-resources.md                # Dictionaries, corpora, and tool references
 └── scripts/
-    └── fetch-linguipedia.py          # Chinese Linguipedia fetcher script
+    ├── fetch-linguipedia.py          # Chinese Linguipedia fetcher script
+    ├── fetch-microsoft-terms.py      # Microsoft terminology search (via termic.me)
+    ├── enrich-from-moedict.py        # MOE Dictionary enrichment (bopomofo, definitions)
+    └── search.py                     # Unified terminology search tool
 ```
 
 ## Domain Pollution Severity
@@ -224,6 +301,10 @@ This skill was created by combining and extending two open-source skills:
 
 Cross-strait vocabulary data source: [Chinese Linguipedia (中華語文知識庫)](https://www.chinese-linguipedia.org/)
 Copyright &copy; [National Cultural Association of Taiwan (中華文化總會, NCAT)](https://www.gacc.org.tw/). Data referenced for academic and translation purposes only.
+
+Microsoft terminology search powered by [termic.me](https://termic.me/) ([GitHub](https://github.com/spidersouris/termic), MIT License).
+
+MOE Dictionary data from [g0v/moedict-data](https://github.com/g0v/moedict-data). Content is CC BY-ND 3.0 TW by the Ministry of Education; JSON format is CC0 by @kcwu.
 
 ## License
 

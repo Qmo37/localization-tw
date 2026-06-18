@@ -95,7 +95,12 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 
 **按領域檢查中國用語污染：**
 
-根據翻譯內容涉及的領域，主動檢查高風險詞彙。遇到不確定的詞彙時，用 Grep 搜尋 `references/linguipedia-cross-strait.md`。
+根據翻譯內容涉及的領域，主動檢查高風險詞彙。查詞策略：
+
+1. **速查**：Grep 搜尋 `references/linguipedia-cross-strait.md` 或 `references/vocabulary.md`
+2. **統一搜尋**：`python3 scripts/search.py <詞彙>`（搜尋所有本地詞庫）
+3. **微軟術語**：`python3 scripts/fetch-microsoft-terms.py <term>`（查 Microsoft Glossary + Translation Memory，含詞性與定義）
+4. **線上整合**：`python3 scripts/search.py <term> --online`（本地＋微軟一次查完）
 
 | 領域 | 污染程度 | 常見錯誤 → 正確用法 |
 | --- | --- | --- |
@@ -140,11 +145,28 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 | 正式程度 | EN 靠詞彙；JA 靠語尾；ZH 靠詞彙與你/您 |
 | 歧義 | 分析脈絡、查專業用法、擇最可能解釋並記錄 |
 
+## 術語查詢工具
+
+| 指令 | 用途 |
+| --- | --- |
+| `python3 scripts/search.py <詞彙>` | 統一搜尋所有本地詞庫（vocabulary.md + linguipedia） |
+| `python3 scripts/search.py <詞彙> --online` | 本地＋ Microsoft 術語一次查完 |
+| `python3 scripts/search.py <詞彙> --mode exact` | 精確比對（也支援 `fuzzy`、`regex`） |
+| `python3 scripts/fetch-microsoft-terms.py <term>` | 查 Microsoft Glossary + Translation Memory（EN↔zh_TW） |
+| `python3 scripts/fetch-microsoft-terms.py <term> --reverse` | 反向查詢（zh_TW→EN） |
+| `python3 scripts/fetch-microsoft-terms.py --batch terms.txt` | 批次查詢多個詞彙 |
+| `python3 scripts/enrich-from-moedict.py --lookup <詞彙>` | 查教育部辭典：注音、定義、例句 |
+| `python3 scripts/enrich-from-moedict.py --generate` | 產生加強版詞庫（核心＋日常，含注音定義） |
+| `python3 scripts/fetch-linguipedia.py` | 更新中華語文知識庫兩岸詞彙資料（~4,800 筆） |
+
+> **提示：** 翻譯軟體 UI 時，Microsoft 術語庫特別有用——它提供微軟產品實際使用的 zh_TW 譯法，含詞性標注與英文定義。資料來源為 [termic.me](https://termic.me/)（Microsoft Terminology 開源替代方案）。
+
 ## 語言參考文件
 
 | 文件 | 內容 |
 | --- | --- |
 | [references/vocabulary.md](./references/vocabulary.md) | 臺灣用語完整對照表（名詞、動詞、句式、標點） |
+| [references/vocabulary-enriched.md](./references/vocabulary-enriched.md) | 加強版：核心用語＋357 筆日常用語，含注音、教育部定義（via [moedict](https://github.com/g0v/moedict-data)） |
 | [references/linguipedia-cross-strait.md](./references/linguipedia-cross-strait.md) | 兩岸差異用詞完整對照（4,800+ 筆，來自中華語文知識庫） |
 | [references/chinese-traditional.md](./references/chinese-traditional.md) | 繁體中文語言特性：量詞、成語、臺港澳差異、翻譯策略 |
 | [references/english.md](./references/english.md) | 英文語言特性：句式、正式度、慣用語、翻譯策略 |
@@ -152,4 +174,4 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 | [translation-challenges.md](./translation-challenges.md) | 常見翻譯挑戰的詳細範例與解法 |
 | [tools-resources.md](./tools-resources.md) | 辭典、語料庫、文法參考、驗證工具彙整 |
 
-> **注意：** `linguipedia-cross-strait.md` 檔案較大（~4,800 筆），不建議全文載入上下文。遇到不確定的兩岸用詞差異時，可用 Grep 工具搜尋該檔案中的特定詞彙。
+> **注意：** `linguipedia-cross-strait.md` 檔案較大（~4,800 筆），不建議全文載入上下文。遇到不確定的兩岸用詞差異時，用 `search.py` 搜尋或直接 Grep 該檔案。
