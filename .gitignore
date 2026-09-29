@@ -2,3 +2,9 @@
 __pycache__/
 *.pyc
 cache.json
+cache-*.json
+*.xz
+# Generated source evidence stays local; review decisions may be committed separately.
+/reports/
+/data/records.jsonl
+.ruff_cache/
