@@ -1,0 +1,1347 @@
+{
+  "kind": "localization-tw-assistant-sense-review",
+  "version": 1,
+  "authority": "assistant-assessment-not-human-approval",
+  "generated_at": "2026-09-09T08:07:54.890608+00:00",
+  "source_report_sha256": "98df91245a3ca9c41dfbd871824730d4c1e350a9e68ac988ada4447b327ae207",
+  "principles": [
+    "詞形、義項、概念與翻譯對應分開；允許一對多、多對一、多對多。",
+    "同詞形可以不同義；同概念可以多種譯法；不同概念亦可有上下位、部分重疊或命名關係。",
+    "讀完全部義項、例句、相似詞與參見詞；例句不是詞義範圍的上限。",
+    "依適用語境，優先中華語文知識庫，其次《國語辭典簡編本》，Microsoft 等作補充。",
+    "來源缺詞不是禁止用詞；來源收錄也不保證每個產品或句子都適用。",
+    "英文與中文詞性不必機械一致；疑義依完整語意及原句判斷。",
+    "保留候選不等於確認整組同義；原勾選不變、不推定讀不清的下拉決定。",
+    "作業系統 process 依使用者既定原則採行程；旅程安排的行程義亦保留。"
+  ],
+  "cases": [
+    {
+      "number": 1,
+      "term": "文件夾 / folder",
+      "conflict_id": "5400c935e7e430b50844a4d9",
+      "fingerprint": "3d585d8d7b871c5d700667cf0dfd09cb4f12e9579c4e87f6d78cd5136552c6dd",
+      "candidate_ids": [
+        "linguipedia:10",
+        "project:66b94a310881e47f7abe"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《檔案夾》完整義為收存文件的文具；中華語文知識庫另有日常器用與電腦資訊兩個領域的資料夾紀錄。",
+      "relationship_guidance": "紙本文具可用文件夾／檔案夾／資料夾，電腦 folder 常用資料夾。同詞形跨領域可以成立，保留原選擇，附領域即可。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 2,
+      "term": "account",
+      "conflict_id": "2512815eed7ee5d489ff78a1",
+      "fingerprint": "bf0f972121592b592a4887f7c29694498795dfa88798e2b0283d918fbc8450b2",
+      "candidate_ids": [
+        "microsoft:11986_235257_573862",
+        "microsoft:14272_7541_559933",
+        "microsoft:14272_7541_7559",
+        "microsoft:1684_178406_178410",
+        "microsoft:1684_178406_387917",
+        "microsoft:1684_178406_559963",
+        "microsoft:20270_724471_733186",
+        "microsoft:21638_779054_1630525",
+        "microsoft:21638_779054_2087635",
+        "microsoft:32264_1707462_1747421",
+        "microsoft:33613_1805605_2051725",
+        "microsoft:33613_1805605_2510540",
+        "microsoft:37270_2114070_2119598",
+        "microsoft:5625_7568_7588",
+        "project:1672a326e568183d0d50"
+      ],
+      "assessment": "候選可並存；產品語境待查",
+      "full_reading_assessment": "《帳戶》含金融戶頭及會計分類記錄兩義；《客戶》指顧客。這些不是只有電腦登入的一個意思。",
+      "relationship_guidance": "account 可對應帳戶、帳號、會計科目、客戶等。來源的身分識別與存取屬性有關，可以保留來源紀錄；其通用性須看產品整句，不因不等於帳號就判錯。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 3,
+      "term": "activate",
+      "conflict_id": "558feacc69369fcc8ca354af",
+      "fingerprint": "f5618869f08775a8eb213e1234eb5ac4431fdf74b8c24de57323312cb25c2a6a",
+      "candidate_ids": [
+        "microsoft:11591_431903_503339",
+        "microsoft:26864_1357733_1368120",
+        "microsoft:4188_136987_137005",
+        "microsoft:7271_170000_1145413",
+        "project:2819ba1b6106838de428"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《啟用》為開始使用，《啟動》為發動、開動。大樓與機器是例句，並未將適用對象封閉成只能用於實體物件。",
+      "relationship_guidance": "activate 在功能、授權、資料可用狀態、Excel 工作表等情境可採不同譯法。啟用／啟動均保留，依句子與產品既有標籤選用。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 4,
+      "term": "ai",
+      "conflict_id": "14005676b10d3b11dd7661a3",
+      "fingerprint": "95a74f670f9f00424e8bd08cf7c44cba779fb7a3d3111ea15e20947974676666",
+      "candidate_ids": [
+        "microsoft:25514_1176917_2751216",
+        "microsoft:25514_1176917_2751217",
+        "project:82379f5b5845b711122d"
+      ],
+      "assessment": "可保留",
+      "full_reading_assessment": "《人工智慧》完整說明涵蓋機器模擬感覺、學習、思考等能力；中華語文知識庫也列臺灣人工智慧／大陸人工智能。",
+      "relationship_guidance": "AI、artificial intelligence 與人工智慧可在相關概念中對應；縮寫與全稱不是衝突。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 5,
+      "term": "api",
+      "conflict_id": "d6631e51b4b125adba04c562",
+      "fingerprint": "11a00e9c6444100ceda1fb5e5cc80df1335cc63782a166534bc4994312d19ba0",
+      "candidate_ids": [
+        "microsoft-termic:dbf987c6498f16ebcc8a2fd6",
+        "microsoft-termic:e83d7ada554a6b38a682246e",
+        "microsoft:1124_49642_49697",
+        "microsoft:1124_49642_779087",
+        "microsoft:40297_2343749_2344698",
+        "project:45f52d5578730e64b076",
+        "microsoft-tm:0cef3d8e7988c3eb051bfab9",
+        "microsoft-tm:736f63aec3f7d8bffc0aef2f"
+      ],
+      "assessment": "候選可並存；標示關係",
+      "full_reading_assessment": "中華語文知識庫在電腦資訊領域收錄介面／界面。本次《簡編本》快照未取得 API 或介面的直接詞目，不能以此否定術語。",
+      "relationship_guidance": "API 是介面的一種，在已知 API 的語境中簡稱介面可以合理。一般 UI、程式語言 interface 型別、API 專有部署模式須保留各自概念；不是禁止 API 譯介面。來源重複字串「介面, 介面」可整理顯示，原文仍保留。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 6,
+      "term": "audio",
+      "conflict_id": "2f40530943530724a470def5",
+      "fingerprint": "a3a57a6e7b9454250a0dd82c59daa38ccf978e9b76d455c7797c29a63f5c1ad0",
+      "candidate_ids": [
+        "microsoft:10451_16349_16367",
+        "microsoft:19539_660548_750790",
+        "microsoft:42368_2396325_2402753",
+        "microsoft:8916_1034316_16609",
+        "project:974d38a129b1a2a741ab"
+      ],
+      "assessment": "候選可並存；來源表述待查",
+      "full_reading_assessment": "《音訊》是消息，與聲音內容的 audio 是同形異義。《聲波》《音波》是介質傳播的波動；聲音檔案與波形顯示則是相關技術用途。",
+      "relationship_guidance": "audio 可依句子表示音訊、音訊檔案或產品音訊功能；同時保留合理。聲音波動、數位訊號、檔案與波形表示互有關聯，毋須硬設唯一譯詞。來源一筆釋義採形容詞式表述而詞性標 Noun，僅列為來源表述待查，不能據此判定中文詞形錯誤。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 7,
+      "term": "call",
+      "conflict_id": "6a2de4f691d48bff68963962",
+      "fingerprint": "730464b5d87a5b18c74bb276b9da8c872d22425bd6eb634be53a568c8101b418",
+      "candidate_ids": [
+        "microsoft:31513_1606391_1632005",
+        "microsoft:31513_1606391_1681154",
+        "microsoft:3301_185609_1380100",
+        "microsoft:44759_2520246_2523240",
+        "microsoft:44886_2531307_2538979",
+        "microsoft:46270_2606211_2608486",
+        "microsoft:48250_2726619_2730695",
+        "microsoft:52303_2955515_2962218",
+        "microsoft:5254_26765_26782",
+        "microsoft:6186_418609_1380101",
+        "microsoft:6186_418609_2510586",
+        "microsoft:6186_418609_420897",
+        "microsoft:6279_26739_1631154",
+        "microsoft:6279_26739_2141726",
+        "microsoft:6279_26739_2510583",
+        "project:037cccf55b0d36af3a3d"
+      ],
+      "assessment": "候選可並存；原句待查",
+      "full_reading_assessment": "《呼叫》含叫喚及電臺呼叫；《通話》指電訊設備的傳輸或交談；《撥打》指打電話。完整閱讀可見 call 的多種對應。",
+      "relationship_guidance": "呼叫、通話、撥號、撥打及 CALL 函式／產品名稱依用途保留。英文名詞在中文介面可能譯成動作，不要求詞性機械一致。兩筆語音通話定義配撥號／撥打的資料，仍需原產品句子才能判定是否配錯。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 8,
+      "term": "callback",
+      "conflict_id": "8102f28af618db6c74426ce3",
+      "fingerprint": "3a2ed1d228a91f78077f70509b98e243c4b2c1f1201eafc241ff8b61493f6fd5",
+      "candidate_ids": [
+        "microsoft:35617_2043470_2065443",
+        "microsoft:4407_26938_26954",
+        "project:ba4d20975ccb98c60f1b"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "本次《簡編本》快照未取得回呼／回撥直接詞目；術語候選中的電話回撥與撥接驗證均有完整技術說明。",
+      "relationship_guidance": "程式 callback 常用回呼；電話及撥接流程可用回撥。這是一個英文詞對多種臺灣用語的合理例子，不撤銷任一勾選。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 9,
+      "term": "client",
+      "conflict_id": "4676d9a1cf914a6e0a64c0d7",
+      "fingerprint": "a9fc687dc0f357e9c308390a9aecb3476820edfeb7c7a4def47b6b17476c98ab",
+      "candidate_ids": [
+        "microsoft:1948_32417_32434",
+        "microsoft:728_483_510",
+        "microsoft:728_483_512",
+        "microsoft:961_32368_32383",
+        "project:8ad42fd3f8dced95ba2f"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "本次未取得《用戶端》的直接詞目。補充術語說明涵蓋請求服務的程式、網路實體與使用其他類別服務的物件。",
+      "relationship_guidance": "client 指程式或裝置時可用用戶端；具體指電腦時可用用戶端電腦。後者是較具體的指稱，可以與前者在適用語境重疊。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 10,
+      "term": "code",
+      "conflict_id": "e82d9930ce6c0c3ca5db24a7",
+      "fingerprint": "2f1c5ed6c7b1a9b58b50f173398397deb5049d42fb8d7b835daf179a3922990d",
+      "candidate_ids": [
+        "microsoft:1810_33647_2717140",
+        "microsoft:1810_33647_33662",
+        "microsoft:1903_33695_33712",
+        "microsoft:3397_33620_33638",
+        "microsoft:38539_2239623_2400955",
+        "microsoft:52316_2955528_2962234",
+        "microsoft:56493_3176393_3176419",
+        "microsoft:8411_33671_33687",
+        "project:b0ee217ac624e44a864d"
+      ],
+      "assessment": "候選可並存；來源義項待查",
+      "full_reading_assessment": "《代碼》有電腦數碼與字母／數字代稱兩義；《編碼》有編號及依規則轉為數碼／所設碼號之義；《撰寫》為寫作、著述。",
+      "relationship_guidance": "code 可是程式碼、代碼、編碼行為或寫程式，CODE 函式與 Copilot 標籤另附產品範圍。將符號系統定義配成撰寫、將寫程式動作配成字碼的兩筆，仍有來源語意疑點；待查的是這兩條關係，不是全部 code 候選。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 11,
+      "term": "component",
+      "conflict_id": "fe7b365f0006080250adbfaf",
+      "fingerprint": "b30c483d55e3e4d55426cfea6c352acb4a8b0ae8a1a110bfaa25a063cb99fc04",
+      "candidate_ids": [
+        "microsoft:11741_36767_36785",
+        "microsoft:12359_235413_475816",
+        "microsoft:2497_36792_36809",
+        "microsoft:53059_3017123_3017147",
+        "microsoft:53059_3017123_3017148",
+        "microsoft:9959_312517_314546",
+        "project:3b5410f2244315168fba"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "本次未取得《元件》的直接詞目；候選完整釋義包含可重用物件、程式模組、製造用組成部分、軟硬體組成及 Loop 元件。",
+      "relationship_guidance": "多個英文技術概念都可用元件，這是合理多對一。一般組成部分可支援較具體物件用法；Loop 元件保留產品脈絡，不因概念不全同就判選錯。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 12,
+      "term": "control",
+      "conflict_id": "11d78efcec87d6d5ab26b4de",
+      "fingerprint": "ff117fd851a16539a792d54518d3f5b063adacd8622be7a3e915794e53f2a7c7",
+      "candidate_ids": [
+        "microsoft:40746_2362005_2366337",
+        "microsoft:4835_39274_2104807",
+        "microsoft:4835_39274_39289",
+        "microsoft:49817_2816704_2819060",
+        "microsoft:821_39300_39314",
+        "project:8ad6d15153a388dca473"
+      ],
+      "assessment": "候選可並存；產品名稱待查",
+      "full_reading_assessment": "《控制》為操縱、節制，可涵蓋電腦操作控制的一般意義；UI 控制項與控制措施是較具體概念，辭典未直接收錄不等於不適用。",
+      "relationship_guidance": "control 可對應控制、控制項、元件、控制措施等；UI 元件與控制項的上下位／框架關係需要說明，不要求一對一。「視覺效果」那筆缺少能證明特定產品用法的脈絡，保留待查。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 13,
+      "term": "cursor",
+      "conflict_id": "b8ff23fe5510e7232e03641b",
+      "fingerprint": "60a21d97a87a7b953b8149801add2c8ab48f33a8ab133eb953da9f0d09ebce05",
+      "candidate_ids": [
+        "microsoft:13130_530790_556984",
+        "microsoft:6400_41560_41574",
+        "project:3b0b2b29cf71c7ee9ebe"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "中華語文知識庫在電腦資訊領域收錄游標，對應游标／光标。本次《簡編本》未取得游標及資料指標的直接詞目。",
+      "relationship_guidance": "cursor 在畫面位置與資料庫結果集各有用途；游標／資料指標可依資料庫產品或 UI 語境選用，不將兩個譯詞設為全域互斥。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 14,
+      "term": "database",
+      "conflict_id": "c96d18732cd751a743163652",
+      "fingerprint": "09f080f797cbe816c093db965cb373047b89469bd3ada5da9cf89895d0199818",
+      "candidate_ids": [
+        "microsoft-termic:1cfd98c71dc64b9ea658cf9f",
+        "microsoft-termic:778544694e95a9195342ce4f",
+        "microsoft:1444_43230_2212880",
+        "microsoft:1444_43230_43248",
+        "microsoft:37653_2148969_2154890",
+        "project:1c167be6b56695c811b2"
+      ],
+      "assessment": "可保留；產品分類另註",
+      "full_reading_assessment": "《資料庫》完整解釋資料存取、依關聯組織、集中管理及資源共享，與一般 database 概念適用。",
+      "relationship_guidance": "資料庫／DB 可同指一般技術概念；商店的 Database 分類是以此概念命名的產品標籤，保留其關係。專案那筆未勾不等於否定資料庫這個詞。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 15,
+      "term": "folder",
+      "conflict_id": "26a24ccafa2aa83257dd70c3",
+      "fingerprint": "49731dfe4e86d548a0d19ddf977f2326b30e392fe57359bcad671feeb60fed80",
+      "candidate_ids": [
+        "microsoft:11470_55264_55283",
+        "microsoft:30522_1516675_1616600",
+        "microsoft:30522_1516675_1693471",
+        "microsoft:37881_2167449_2167846",
+        "microsoft:37881_2167449_2246998",
+        "project:66b94a310881e47f7abe"
+      ],
+      "assessment": "可保留",
+      "full_reading_assessment": "中華語文知識庫明列電腦資料夾；《檔案夾》則描述紙本文具，可保留比喻或延伸關係。",
+      "relationship_guidance": "一般資料夾、DFS 物件與開始畫面分組可共享資料夾譯名。已勾來源中本來就有 DFS 定義，不能從未勾「DFS 資料夾」這個標籤推論你排除了 DFS 概念。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 16,
+      "term": "get",
+      "conflict_id": "44e87968be687aab549ba43b",
+      "fingerprint": "42a7c4811feb22a93b6c53ffbd6de8242f5991c2bc367f6afad6c8ea04d6a63c",
+      "candidate_ids": [
+        "microsoft:2057_58244_58258",
+        "microsoft:39709_2308965_2314443",
+        "microsoft:48377_2735257_2737513",
+        "project:d60989f8bbbfbe49a166"
+      ],
+      "assessment": "可保留",
+      "full_reading_assessment": "《取得》指拿到、獲得，不因例句使用學位而排除取得檔案、資源等情境。",
+      "relationship_guidance": "get／obtain 在適用句子可對應取得；FTP 與版本控制的 get 命令保留識別名稱及功能解釋。多對一譯法成立。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 17,
+      "term": "hd",
+      "conflict_id": "f4fad0dec9f215eadeb87519",
+      "fingerprint": "2f85c4900da10f4dc77a6abff8e03122ae5d500e867f49151289d9a1a3f84210",
+      "candidate_ids": [
+        "microsoft:11543_2175644_2189999",
+        "microsoft:11543_2175644_359715",
+        "microsoft:11543_2175644_359718",
+        "microsoft:11543_2175644_359864",
+        "microsoft:11543_2175644_359870",
+        "project:a708436a87f40c93b208"
+      ],
+      "assessment": "候選可並存；縮寫分義",
+      "full_reading_assessment": "中華語文知識庫收錄高畫質；本次《簡編本》未取得高畫質直接詞目。Microsoft 這批候選完整釋義都指特定光碟格式。",
+      "relationship_guidance": "一般 high definition／HD 可用高畫質；HD DVD、AOD、先進光碟等在其格式語境保留。它們可以同列供選，但不能只因英文檢索鍵 HD 相同就合成一個概念。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 18,
+      "term": "interface",
+      "conflict_id": "cf1797be51ccae35d8bf3684",
+      "fingerprint": "7fc7d4246bb79806caa801d755fa897667c629fbe660c2c008c89378b4882393",
+      "candidate_ids": [
+        "microsoft-termic:dbf987c6498f16ebcc8a2fd6",
+        "microsoft-termic:e83d7ada554a6b38a682246e",
+        "microsoft:11622_68629_68646",
+        "microsoft:13838_68604_476135",
+        "microsoft:13838_68604_68620",
+        "microsoft:1881_68580_68595",
+        "microsoft:2557_535210_557266",
+        "microsoft:3913_537630_551065",
+        "project:45f52d5578730e64b076",
+        "microsoft-tm:0cef3d8e7988c3eb051bfab9",
+        "microsoft-tm:736f63aec3f7d8bffc0aef2f"
+      ],
+      "assessment": "候選可並存；標示關係",
+      "full_reading_assessment": "中華語文知識庫提供電腦資訊領域介面／界面。本次《簡編本》未提供直接詞目，專業定義以候選完整說明補足。",
+      "relationship_guidance": "interface 可指 UI、硬體連接、程式型別或契約；介面與硬體介面可以是廣義／狹義關係，API 也可在適用語境簡稱介面。保留多對多，不使用整組同義的假設。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 19,
+      "term": "invoke",
+      "conflict_id": "3b7e76397f37bdf608b608b6",
+      "fingerprint": "a4215c40c278f156d79c9b4a8e7111a56570a7863dcd57f39753fd56bb791cc5",
+      "candidate_ids": [
+        "microsoft:7209_70656_70672",
+        "project:037cccf55b0d36af3a3d"
+      ],
+      "assessment": "譯名均可保留",
+      "full_reading_assessment": "《呼叫》雖未明列副程式呼叫，但沒有因此否定技術延伸；Microsoft 叫用明確描述呼叫或啟動命令、副程式。",
+      "relationship_guidance": "invoke 在適用語境可譯呼叫／叫用。專案可選一致的主要寫法，引用產品原文仍可保留另一種；來源不同不是正誤判準。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 20,
+      "term": "link",
+      "conflict_id": "5f0e146ce38d3797610b195a",
+      "fingerprint": "a8d36a6f1902e955fa2d1ec4632c9b583ad3bd580f6eb28b7a4b5a00c9685f38",
+      "candidate_ids": [
+        "microsoft:19294_652266_670009",
+        "microsoft:31969_1629242_1632399",
+        "microsoft:363_358322_145566",
+        "microsoft:363_358322_475893",
+        "microsoft:38628_2244894_2252967",
+        "microsoft:53085_3018853_3018990",
+        "microsoft:53808_3062092_3062204",
+        "microsoft:6309_178700_178702",
+        "microsoft:8441_370277_2071",
+        "microsoft:8441_370277_372114",
+        "project:449da65a4daf2f2261b0"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《連結》為互相結合，例句的校友合作不會限制該詞只能用在人際關係；中華語文知識庫另有超連結／超鏈結。",
+      "relationship_guidance": "一般連結、超連結、OLE/DDE 連結、資料連結及產品功能可保留廣狹義和命名關係。不是每一種技術實作都要成為互不相干的新詞義。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 21,
+      "term": "machine learning",
+      "conflict_id": "81224347f2b9d58719f866c6",
+      "fingerprint": "950fcdd42329d2dae3efa124b5b9950aedb41aaeff4ea4e6f6bdb10949322f1a",
+      "candidate_ids": [
+        "microsoft:35664_2050573_2055473",
+        "microsoft:35664_2050573_2055476",
+        "microsoft:35664_2050573_2168302",
+        "microsoft:35664_2050573_2364909",
+        "microsoft:35664_2050573_2569304",
+        "microsoft:35664_2050573_2684517",
+        "microsoft:35664_2050573_2701514",
+        "microsoft:39432_2289743_2508677",
+        "microsoft:39432_2289743_2777670",
+        "project:dec69812b74800770aac"
+      ],
+      "assessment": "可保留；產品用語另註",
+      "full_reading_assessment": "本次未取得《機器學習》直接詞目；候選有一般學習演算法概念與特定雲端解決方案的完整定義。",
+      "relationship_guidance": "機器學習、Machine Learning、ML 在適用語境可共存。你勾的前三筆源自產品專名，另有一般概念；保留兩類，而不把產品能力當作所有機器學習的必要條件。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 22,
+      "term": "memory",
+      "conflict_id": "150bbfa85d24a979ca249fee",
+      "fingerprint": "b41a22ec43eba213556b7b6a3d2412b6cb34d9ce948d18cf665f5e84809018fb",
+      "candidate_ids": [
+        "microsoft:240_79535_79553",
+        "microsoft:4721_1636238_1637453",
+        "microsoft:52989_3012675_3012725",
+        "project:0a317aeaebdb637048a8"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《記憶》含留在腦海中的內容及心理歷程；《記憶體》完整包含主記憶體與輔助記憶體，後者明說可永久儲存。",
+      "relationship_guidance": "memory 可是心理記憶、電腦記憶體、容量或計算機的記憶功能。不將記憶體一律縮成 RAM，也不因來源涵蓋 USB 就直接判錯；具體談揮發性時才按設備限定。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 23,
+      "term": "message",
+      "conflict_id": "7fb93f5adab280cedc631ba6",
+      "fingerprint": "06e5aeb99ed23719942341525c247dc4535b574cabd2dd09f1384e5709aef585",
+      "candidate_ids": [
+        "microsoft:14050_79920_79938",
+        "microsoft:14412_318308_387924",
+        "microsoft:14412_318308_387925",
+        "microsoft:3415_79894_79912",
+        "microsoft:34484_1992950_2401052",
+        "microsoft:3547_322617_2083760",
+        "microsoft:3547_322617_475908",
+        "microsoft:3547_322617_475909",
+        "project:6240d833c2db7825eb42"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《訊息》是音訊消息；《資訊》兼有電腦有用資料及一般資料／訊息之義；《電子郵件》《文件》補充信件交換與文件的範圍。",
+      "relationship_guidance": "message 可依句子譯訊息、資訊、電子郵件、電子郵件訊息或特定交換文件。保留多對多；技術協定中的訊息單位需精確，普通語句則容許資訊／訊息重疊。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 24,
+      "term": "mobile",
+      "conflict_id": "351aa968727d82103036fa61",
+      "fingerprint": "12df167c5103e5cc129a0016f52a48be4ccf78ab5818549097b1b38c7b4c570f",
+      "candidate_ids": [
+        "microsoft:12345_2419401_2030315",
+        "microsoft:12345_2419401_81170",
+        "microsoft:13502_211382_476100",
+        "microsoft:1609_184972_184975",
+        "microsoft:25819_1217811_1266762",
+        "microsoft:43774_2470219_2480917",
+        "project:c0f3437b0f64107b83f9"
+      ],
+      "assessment": "候選可並存；臺灣偏好另註",
+      "full_reading_assessment": "《行動》是行為、舉動，不能當作行動裝置的唯一詞義。《行動電話》《手機》完整說明移動通訊；中華語文知識庫明列行動裝置。",
+      "relationship_guidance": "mobile 可依詞性、省略語與介面欄位指行動、行動裝置、手機／行動電話，產品服務標籤另註。臺灣一般用語優先行動裝置；流動裝置保留來源，不因 TWN 標記就自動列為偏好。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 25,
+      "term": "network",
+      "conflict_id": "da7ed9aab962bd76ecf43bd2",
+      "fingerprint": "aac7be11159df8fa478b4a9eacd875c0bc14bc434a7036802a3a8f41b475b838",
+      "candidate_ids": [
+        "microsoft:25992_2696313_1272596",
+        "microsoft:25992_2696313_2696948",
+        "microsoft:32004_1630295_1632466",
+        "microsoft:47823_2691545_2693731",
+        "microsoft:9884_84006_84026",
+        "project:289856b7e4fd819dac7e"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《網路》有電子元件構成的電路及電腦通訊兩義；中華語文知識庫也分電腦、自然科學與其他領域。",
+      "relationship_guidance": "network 可指電腦、行動通訊、社交或醫療網絡；網路可以跨多個概念使用，社交網路／醫療網是具體範圍。保留各來源，不把多義當衝突。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 26,
+      "term": "post",
+      "conflict_id": "ec11590b1cd45f751c0f37f4",
+      "fingerprint": "6aa0d75577c0429c63a86fa6e3ec468136ca37104ad6141be84c2db86d4390c6",
+      "candidate_ids": [
+        "microsoft:30898_1567770_1585130",
+        "microsoft:328_93895_234561",
+        "microsoft:3967_93870_93884",
+        "microsoft:42722_2421504_2424242",
+        "microsoft:8290_14790_14816",
+        "microsoft:8290_14790_2245988",
+        "project:a16aed0eeb13ac7ffeab"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《貼文》明列發表文章的動作與網路文章兩義；《張貼》描述張掛黏貼；《文章》除篇章外還有隱含意義。",
+      "relationship_guidance": "post 可依句子譯貼文、文章、張貼、發文；貼文本身可作動詞，毋須強制改成發文。POST 開機自我測試與產品按鈕另附概念／名稱範圍。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 27,
+      "term": "process",
+      "conflict_id": "1b184aa312dafc91bcc948c0",
+      "fingerprint": "fb73ed5fc1f7289e18a5459b7d4bc6519cddea658fb7135761ee2967454a8921",
+      "candidate_ids": [
+        "microsoft-termic:2faa27460da59a7a71a9cd9f",
+        "microsoft-termic:a64cab0383a0def1cfd7bae6",
+        "microsoft-termic:a895218eb460177121bc55ce",
+        "microsoft-termic:c81f417b1b50c85999c5fa0a",
+        "microsoft:12597_235370_550768",
+        "microsoft:16585_592452_605341",
+        "microsoft:21004_763870_1040208",
+        "microsoft:3780_95135_95151",
+        "microsoft:5429_95161_95177",
+        "project:ee14814dce9137b58983",
+        "microsoft-tm:537d3e3274b6f2abbed6309a"
+      ],
+      "assessment": "候選可並存；專案偏好明確",
+      "full_reading_assessment": "《流程》有水流路程及依序操作過程兩義；《處理》為處置、辦理；《程序》為既定次序；《行程》為旅程安排。這些完整義項支持 process 的多種用法。",
+      "relationship_guidance": "作業系統 process 依你的原則用行程；來源處理序與個別處理名詞仍可保留為來源譯法，不升為專案偏好。流程、處理動作、旅程行程、SmartArt 流程圖依語境建立關係，保留勾選不等於混義。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 28,
+      "term": "run",
+      "conflict_id": "157b21662319d0c16b5d7d75",
+      "fingerprint": "b6fb6656de3e12f546b552750d4b1d6421484c3e9a2777aed3d34407e1dd4b1f",
+      "candidate_ids": [
+        "microsoft:20099_694715_712452",
+        "microsoft:42449_2405914_2406219",
+        "microsoft:42449_2405914_2406220",
+        "project:43da21ca748ded2036c5"
+      ],
+      "assessment": "可保留",
+      "full_reading_assessment": "《執行》為實行、實施，可自然用於執行程式或執行工作，不限於辭典例句中的檢討活動。",
+      "relationship_guidance": "run／execute 可同譯執行；一次執行可作名詞，流程執行是更具體的用法。命令識別字另行保留。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 29,
+      "term": "server",
+      "conflict_id": "a1847ae324e0296e7a0f23c2",
+      "fingerprint": "9f9c17088f47aca31106f24009464b3cb195d0bb388a5c5351e2188ad1bf5115",
+      "candidate_ids": [
+        "microsoft-termic:53353b6db579253ed2b7cb4b",
+        "microsoft:13683_110861_110881",
+        "microsoft:6011_84840_84875",
+        "microsoft:6011_84840_84876",
+        "project:befe08cd84e59d045890",
+        "microsoft-tm:3e49a6703b4170cf5d65052d",
+        "microsoft-tm:8082f91b6b2791dd51caa679"
+      ],
+      "assessment": "可保留",
+      "full_reading_assessment": "中華語文知識庫明列伺服器／服务器；本次《簡編本》未取得伺服器直接詞目。候選有共享資源電腦與提供網頁服務的實體等說明。",
+      "relationship_guidance": "server 可是機器、服務程式或其他提供服務的實體；伺服器／網路伺服器可在對應語境重疊，具體實作另註。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 30,
+      "term": "source code",
+      "conflict_id": "6436a1cd0f3ffe80acbdb1aa",
+      "fingerprint": "332976dd6b4b741bbbe9638dbd2db511818e357de910247a0c3ad028781f97b4",
+      "candidate_ids": [
+        "microsoft:4238_114806_114824",
+        "project:2ca0183cd582d6beb877"
+      ],
+      "assessment": "譯名均可保留",
+      "full_reading_assessment": "中華語文知識庫收錄原始碼／源代码。本次《簡編本》未取得原始碼或原始程式碼直接詞目。",
+      "relationship_guidance": "source code 對應原始碼／原始程式碼均合理。術語來源採編譯模型說明，若用作完整跨語言定義可補充直譯／執行階段情境；這不構成否決任一譯名的理由。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 31,
+      "term": "support",
+      "conflict_id": "43abb7f1d01821dc80ccfa12",
+      "fingerprint": "dad69d06187c6a0a967369567a8520e38ef96d3522fdefb47c9577d4d3a381a5",
+      "candidate_ids": [
+        "microsoft:10982_117719_117737",
+        "microsoft:14616_117696_117714",
+        "microsoft:31848_1834084_1860137",
+        "microsoft:31848_1834084_2051745",
+        "microsoft:31848_1834084_2051765",
+        "microsoft:31848_1834084_2510643",
+        "microsoft:41787_2365479_2370667",
+        "microsoft:41930_2374257_2378724",
+        "project:ec368dbc0070b1b9c1c2"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《支援》為支持援助，《支架》為支持物體的架子，《客戶》指顧客。完整詞義可支持服務、功能及物理支撐等不同指稱。",
+      "relationship_guidance": "support 的支援、客戶服務、客戶服務中心、支架依語境保留；3D 列印支架是合理用法，不因不是軟體功能而排除。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 32,
+      "term": "target",
+      "conflict_id": "f8eb072b2b68905276cc2f6a",
+      "fingerprint": "14a2615f541fa89df1992ded6b376602906dc9364b043f717e6dd31a4114bf34",
+      "candidate_ids": [
+        "microsoft:10089_227651_319228",
+        "microsoft:10089_227651_319229",
+        "microsoft:10089_227651_574432",
+        "microsoft:10101_119805_119816",
+        "microsoft:10271_186299_186300",
+        "microsoft:3851_416288_464556",
+        "microsoft:49867_2819445_2823205",
+        "microsoft:5156_119824_119837",
+        "project:efacee5d0b75eec706c7"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《目標》含目力標的與工作計畫的預定標準；《針對》為對準。",
+      "relationship_guidance": "target 作名詞可譯目標／目標值，作動詞或句中關係可譯針對；技術上的目標資料庫、路徑等可視為具體用法。英文與中文詞性不必逐字一致。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 33,
+      "term": "thread",
+      "conflict_id": "bd6ffbb3c1d025cc28cd58b5",
+      "fingerprint": "9c104616c967dd312d7ab1221cbe82669df5ed8bd2d504df4771172050ad90ba",
+      "candidate_ids": [
+        "microsoft:30904_1567776_1585134",
+        "microsoft:30904_1567776_2246024",
+        "microsoft:30997_1584658_1637469",
+        "microsoft:621_121364_121383",
+        "project:3f5ebcc3b13afee119e9"
+      ],
+      "assessment": "候選可並存；個別來源待查",
+      "full_reading_assessment": "《對話》含交談語句及國家／政府接觸兩義；第一義可支持訊息串中的交談。電腦執行緒由技術定義補充。",
+      "relationship_guidance": "thread 可是執行緒、對話／討論串或產品中的反應集合。「發佈反應」保留原產品資料，不僅憑不常見判錯；把社群反應集合配成執行緒的那條來源仍有疑點，且你並未勾選它。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 34,
+      "term": "via",
+      "conflict_id": "8f764fb3f150a62d900b9dc2",
+      "fingerprint": "08718af4e6fea8487d944b14d3fc2969b516385719d8a1ca1ef211723d05077a",
+      "candidate_ids": [
+        "microsoft:36_527908_535762",
+        "microsoft:50249_2842114_2844899",
+        "microsoft:50249_2842114_2844900",
+        "project:f30b201d2f0b5cddf1a5"
+      ],
+      "assessment": "候選可並存；同形分義",
+      "full_reading_assessment": "《透過》有穿過及經由／通過兩義；《孔》有孔洞、孔子簡稱、程度副詞、姓氏四義，電路板候選適用孔洞範圍。",
+      "relationship_guidance": "via 可是介詞、電路板導通孔或 VIA 專名。透過、孔、病毒資訊聯盟都能保留；按語境決定，不把同一英文字母串當唯一概念。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 35,
+      "term": "video",
+      "conflict_id": "9dc13f4867f3ce1592e89251",
+      "fingerprint": "2603f6ee41bd8bd0a26e9623d5cdc425a4b73c34247a67688d9035589f6d9e58",
+      "candidate_ids": [
+        "microsoft:31545_1606490_1623994",
+        "microsoft:31545_1606490_1780113",
+        "microsoft:32091_1636211_1637486",
+        "microsoft:33656_2060301_1851360",
+        "microsoft:33656_2060301_2083808",
+        "microsoft:3394_128541_128557",
+        "microsoft:37158_2109000_2111219",
+        "microsoft:37158_2109000_2111242",
+        "microsoft:37158_2109000_3134423",
+        "microsoft:42367_2396324_2402775",
+        "microsoft:43234_2447281_2773602",
+        "microsoft:45295_2556955_2568491",
+        "microsoft:45295_2556955_2568492",
+        "microsoft:45295_2556955_2671898",
+        "microsoft:50643_2866659_2867324",
+        "project:299bd8ae326dbc918bb6"
+      ],
+      "assessment": "候選可並存",
+      "full_reading_assessment": "《影片》第 1 義包括電影及拍攝剪輯的影音作品，第 2 義是電影底片；《視訊》包含影像、畫面、聲音轉成的電波訊息；《影音》是影像和聲音。",
+      "relationship_guidance": "video 可依作品、通話、訊號、顯示技術或產品名稱採影片／視訊／影音。不能把視訊說成必定只有畫面沒有聲音。舊產品的視頻標籤保留來源，一般臺灣偏好另按適用語境決定。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 36,
+      "term": "widget",
+      "conflict_id": "8ac3a7dc3ba789e000b161f7",
+      "fingerprint": "cd434c11494b280e16619b554363ad40f3d1a51ad034c2fc721b4a7324c25ce0",
+      "candidate_ids": [
+        "microsoft:34203_1987195_2061969",
+        "microsoft:34203_1987195_2246029",
+        "microsoft:36872_2093287_2105661",
+        "microsoft:40667_2358925_2359886",
+        "microsoft:893_346947_368736",
+        "project:8ad6d15153a388dca473"
+      ],
+      "assessment": "候選可並存；框架名稱另註",
+      "full_reading_assessment": "本次《簡編本》未取得小工具／元件／控制項直接詞目，不能據缺詞否定用法。來源包含 GUI 物件、主畫面小工具、儀表板項目與 MSDT 執行單位。",
+      "relationship_guidance": "widget 可依框架指元件、控制項或小工具；若 Widget 是 API 或 XML 識別名稱則保留。這些可能上下位或部分重疊，不必強制全域統一成一種中文。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 37,
+      "term": "互動 / interaction",
+      "conflict_id": "d324ee928fd4921b59e01935",
+      "fingerprint": "400725ee140386d823b2493c6b3d93d2f0e9add7da4fb612b8b3c2cbc2e722e6",
+      "candidate_ids": [
+        "moe-concised:283200006:0",
+        "moe-revised:369728f96d8fdda41a4b4bd3",
+        "project:321280b1e90d6e93638f"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》兩義為相互感應、社會行動者相互影響，並附古典引文；沒有直接定義人機互動。一般義與 UI 領域用法可並存，不把引文語境當成全部適用範圍。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 38,
+      "term": "人工智慧 / AI",
+      "conflict_id": "ef3cd20dbabc3ab745edd2ef",
+      "fingerprint": "87ea1e30157d1b10a75d30b95cd204ebdd580168e90851abe547dbe3af00d3ee",
+      "candidate_ids": [
+        "moe-concised:5201000311:0",
+        "moe-revised:ec8d81fcee0b3dd9e0791710",
+        "project:82379f5b5845b711122d"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》明列電腦模擬人類智慧及行為，與《簡編本》的機器感覺、學習、思考說明相容；新增來源沒有形成需裁決的譯名衝突。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 39,
+      "term": "位元 / bit",
+      "conflict_id": "5681bfce8760ca8e0abdcb17",
+      "fingerprint": "101e176b54c5bd4194f86dbbfcb4269d53580f12786eb3d3fcfe400abb40548f",
+      "candidate_ids": [
+        "moe-concised:633900009:0",
+        "moe-revised:75fc84286c1e3da665c57841",
+        "project:67ba36233c1ddd6696fe"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》明列二進位的 0 或 1、英語 bit，另記比特、比、數元等別稱。位元的對應成立；專案偏好位元不表示辭典記錄的其他別稱全部錯誤。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 40,
+      "term": "位元組 / byte",
+      "conflict_id": "8be827e94fd5bacdb1f513b7",
+      "fingerprint": "ad05b2139d89f162cc18501339005232bcb2cc43b34e537b219f4009c2447105",
+      "candidate_ids": [
+        "moe-concised:633900010:0",
+        "moe-revised:10121a8599e189caf0b13571",
+        "project:5aa312852d9b62789af4"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》明列 byte 的意譯與八個位元的關係，另保留依字碼而異的儲存說明。詞義與《簡編本》相容，不能推成所有字元固定占一個位元組。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 41,
+      "term": "列印 / print",
+      "conflict_id": "4ac9a3e1e95afcd799e209e0",
+      "fingerprint": "8f0ebb57edd59ecb63f218b021c2c30e6b09cd138323bfc8cfe3f627ace1198b",
+      "candidate_ids": [
+        "moe-concised:193100016:0",
+        "moe-revised:1e729ba049509784fef7c100",
+        "project:fcf2dec3ef013d4f7c79"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》同樣解釋依次印出，完整例句明列電腦資料。技術文件的列印用法有直接支持；程式識別字 print 與其他輸出語境仍按用途處理。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 42,
+      "term": "呼叫 / call, invoke",
+      "conflict_id": "70af08ad1949fb5ca9193563",
+      "fingerprint": "875c360c14b00c1e6eeb037716cb682f56838ed8aff875dd06c1d97d37d68611",
+      "candidate_ids": [
+        "moe-concised:280300008:0",
+        "moe-revised:3940d80268a81f6887700828",
+        "project:037cccf55b0d36af3a3d"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》完整保留喊叫與無線電傳呼兩義、引文及例句，沒有新增程式呼叫的直接定義。一般、無線電及程式呼叫依脈絡並存，無須強迫 call 與 invoke 一對一分配。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 43,
+      "term": "啟用 / activate",
+      "conflict_id": "0c47172573c43cbb1f9e4913",
+      "fingerprint": "90af668c5c45b7bcf84886556ad773174de1cb66d205447a3ff1837e8d4d72fa",
+      "candidate_ids": [
+        "moe-concised:357100013:0",
+        "moe-revised:cbac3b23ad1a79834c3fd734",
+        "project:2819ba1b6106838de428"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》第一義為開始使用，與《簡編本》一致；第二義為古文中的拔擢任用。啟用功能適用第一義，人事任用另分義，毋須因新增歷史義否定現代用法。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 44,
+      "term": "帳戶 / account",
+      "conflict_id": "5b8d5df4ed68c4f39e51b5d7",
+      "fingerprint": "ece62c8bb54cedd593db7cd7dd147433524c1d1c06eabd37f1604888e59975ea",
+      "candidate_ids": [
+        "moe-concised:445900008:0",
+        "moe-revised:4b43c6678fe3f24c6c0058bf",
+        "project:1672a326e568183d0d50"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》兩義是金融戶頭與會計分類記錄，並記賬戶異體，與《簡編本》金融／會計範圍相容。登入帳戶由技術來源補充；專案字形偏好不應變成所有其他寫法在所有場合都錯誤。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 45,
+      "term": "影片 / video",
+      "conflict_id": "ccea46fb3df8913cd9076821",
+      "fingerprint": "ae3e55ba9a6242257dc35e9e7b8ddb9c83d61ed24a7df0ed9a06905d23edcbf1",
+      "candidate_ids": [
+        "moe-concised:621500002:0",
+        "moe-revised:8519f280ae78d9a3564592f8",
+        "project:299bd8ae326dbc918bb6"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》完整兩義為電影與電影底版膠片；《簡編本》第一義另明列各類拍攝剪輯影音作品。一般數位 video 先依《簡編本》的適用義，不因《重編本》較窄就刪除；兩者的膠片義另保留。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 46,
+      "term": "支援 / support",
+      "conflict_id": "1423cd815709a6c00c37860b",
+      "fingerprint": "1e0b284ae4ea735c62db69389c8309037ef61f4c179227827063830873235bcf",
+      "candidate_ids": [
+        "moe-concised:421700023:0",
+        "moe-revised:f185fa82acba329bc3f8adf4",
+        "project:ec368dbc0070b1b9c1c2"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》為支持援助，附前線例子與救援等相似詞；例句不限制全部使用領域。功能支援或技術服務的具體含義需看語境，沒有新增必須排他的譯名衝突。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 47,
+      "term": "相容 / compatible",
+      "conflict_id": "e13e3f5dfa15c9c4d69b4cb5",
+      "fingerprint": "4dedcd054f174da51fe6b27c90fb4edfeb6c95ebca33f425fcdff4c740cbadc6",
+      "candidate_ids": [
+        "moe-concised:405700059:0",
+        "moe-revised:aa0a9b2ebd357f158cd86bda",
+        "project:f84e8b585c78b28cb22a"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》只有相互包容、忍讓的一般義及古典引文；《簡編本》第二義明列電腦系統／設備資訊及功能互通。因此技術義依《簡編本》保留，《重編本》一般義並列，不互相覆蓋。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 48,
+      "term": "程序 / process",
+      "conflict_id": "e36557e41fdd197148222543",
+      "fingerprint": "60f60b8fa7b4595157a41678e4d5a152a58229620a78019c887c043b241cd317",
+      "candidate_ids": [
+        "moe-concised:479000002:0",
+        "moe-revised:6c4fece076b6113b833e8323",
+        "microsoft-termic:2faa27460da59a7a71a9cd9f",
+        "microsoft-termic:a64cab0383a0def1cfd7bae6",
+        "microsoft-termic:a895218eb460177121bc55ce",
+        "microsoft-termic:c81f417b1b50c85999c5fa0a",
+        "project:ee14814dce9137b58983",
+        "microsoft-tm:537d3e3274b6f2abbed6309a"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》為辦事的規則次序，附議事例句與步驟／次序相似詞，與《簡編本》一致。Termic 分別描述結構化活動、資料處理、作業系統概念及 SmartArt 類型，各有範圍；保留多對多並維持使用者的作業系統「行程」偏好。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 49,
+      "term": "網路 / network",
+      "conflict_id": "f40b597a0429a34bb0961ee5",
+      "fingerprint": "454df984018d2f5d78de83639c74d8e23d74f957af6c9ad668b1dfbaa3f52cc8",
+      "candidate_ids": [
+        "moe-concised:640900001:0",
+        "moe-revised:5c2f9100a5f842afcce3c6c2",
+        "project:289856b7e4fd819dac7e"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》完整三義為電子電路、廣播網與電腦通訊網路；《簡編本》保留電路與電腦義。各領域可對應 network，新增廣播義是補充，不能把有線設備的例示讀成排除無線技術。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 50,
+      "term": "行程 / process",
+      "conflict_id": "c6a807efcf478653c9092be8",
+      "fingerprint": "19701c30a7f89eaa52f7e163bfaed51882ec08445573469f94c5ecaf791c051b",
+      "candidate_ids": [
+        "moe-concised:409700040:0",
+        "moe-revised:6c6871176534b2f4e8917287",
+        "microsoft-termic:2faa27460da59a7a71a9cd9f",
+        "microsoft-termic:a64cab0383a0def1cfd7bae6",
+        "microsoft-termic:a895218eb460177121bc55ce",
+        "microsoft-termic:c81f417b1b50c85999c5fa0a",
+        "project:ee14814dce9137b58983",
+        "microsoft-tm:537d3e3274b6f2abbed6309a"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》完整三義為路程、啟程、行李，附各自古典引文；《簡編本》著重旅程細節安排。它們都不是作業系統 process 的定義。保留歷史、現代一般與電腦義；同字多義不產生全域替換或排他選擇。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 51,
+      "term": "訊息 / information, message",
+      "conflict_id": "b0cd68911aae482dcc5136cc",
+      "fingerprint": "7603cf2b366e7602aa47b214c7bc52e114fe8b7629321dc3926d09f1a9fbe663",
+      "candidate_ids": [
+        "moe-concised:419800002:0",
+        "moe-revised:fe9463b6e1f6beccdb311483",
+        "project:6240d833c2db7825eb42"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》為音訊消息，附傳播、近況例句與消息相似詞，與《簡編本》相容。訊息／資訊的重疊仍依語境處理，不據此強制 information 與 message 各只能配一個中文詞。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 52,
+      "term": "記憶體 / memory",
+      "conflict_id": "99aaf754eaddd30a8c3bd771",
+      "fingerprint": "4429af9e175b07bb75cc051f87fa7ea157ca4cced79da7643e89ea59eb2c7d25",
+      "candidate_ids": [
+        "moe-concised:3081000171:0",
+        "moe-revised:1fe45e4d0992db89d6ce31b4",
+        "project:0a317aeaebdb637048a8"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》完整區分主記憶體與輔助記憶體，與《簡編本》同屬廣義說明。專案原欄另註 RAM，屬較窄用途；不可把廣義段落等同 RAM 的完整硬體定義，也不因例示較舊媒材而否定詞目。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 53,
+      "term": "貼文 / post",
+      "conflict_id": "5f1cc68cc1e5c43bdfdeb519",
+      "fingerprint": "a20ebba98724a8eea517ce8b42b30c013442c821a7e95043736693c81384b3d0",
+      "candidate_ids": [
+        "moe-concised:145600011:0",
+        "project:a16aed0eeb13ac7ffeab"
+      ],
+      "assessment": "可保留；動詞與名詞均成立",
+      "full_reading_assessment": "《貼文》第 1 義是在網路發表文章，第 2 義是網路上發表的文章，例句分別支援動作與物件。",
+      "relationship_guidance": "post 作動詞或名詞都可用貼文；張貼／發文／文章也可在對應句子使用。不能要求動詞一定換詞，也不能由未見勾選推論你否定貼文。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 54,
+      "term": "資料 / data",
+      "conflict_id": "8844c51e53ed1283d90ef057",
+      "fingerprint": "380324e4a696129878970ffe7d27025b9934dbfd6970cadec896a5166e82f9b4",
+      "candidate_ids": [
+        "moe-concised:527600008:0",
+        "moe-revised:ed2beb025462e10627ee6099",
+        "project:6149e6a446ce151475ef"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》四義分參考材料、生產生活所需、社會科學記錄與計算機資料。計算機義與《簡編本》相容，其「通常」未處理不是絕對條件；其他義依用途另保留。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 55,
+      "term": "資料庫 / database",
+      "conflict_id": "bf1a01ef196b54bdcd9cda21",
+      "fingerprint": "60c3d53baf0ba29a91bd54e99d2631e882124f48387c066a9cb8957d80d64e20",
+      "candidate_ids": [
+        "moe-concised:527600009:0",
+        "moe-revised:21df75709da819ec4eb3d897",
+        "microsoft-termic:1cfd98c71dc64b9ea658cf9f",
+        "microsoft-termic:778544694e95a9195342ce4f",
+        "project:1c167be6b56695c811b2"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》描述電腦資料存取、管理及共享，與《簡編本》及 Termic 的可搜尋資料集合相容。Termic 另有產品分類標籤，應保留命名脈絡；辭典例示儲存媒材不限制所有實作。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 56,
+      "term": "資訊 / information, message",
+      "conflict_id": "11a1e9d4a322be18ffa119a7",
+      "fingerprint": "9fc453b56af4a491f99b6f4f8724db6f0bd1fcd69b6ff64cc4d4c836352b19ad",
+      "candidate_ids": [
+        "moe-concised:527600013:0",
+        "moe-revised:700744bbec2ab90b0665b920",
+        "project:6240d833c2db7825eb42"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》兩義為電腦中有用的資料／訊息及一般資料／訊息，與《簡編本》相容，並記大陸用語信息。詞形與英文可有重疊，精確技術概念依產品或領域另定義。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 57,
+      "term": "軟體 / software",
+      "conflict_id": "b27e988701e3bc924a493c86",
+      "fingerprint": "709763af3f92a39e21e5a910952ce4a0e834a1e4076852215897d6f7bcbfa522",
+      "candidate_ids": [
+        "moe-concised:525600005:0",
+        "moe-revised:fef3fe192576622172fa93e3",
+        "project:016b6d637ce27293222a"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》第一義明列電腦資料、指令及程式集，第二義以音樂廳節目說明硬體的對稱；《簡編本》同樣有電腦與引申兩義。各義保留且不互相冒充定義。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 58,
+      "term": "連結 / link",
+      "conflict_id": "820ff78545f8515156844682",
+      "fingerprint": "3d03f2067c13302f9e851ba0cc3b3f1cb9ff410f8b690f76f173ec194b7310df",
+      "candidate_ids": [
+        "moe-concised:198100026:0",
+        "moe-revised:745f94160cb40f237d13ec38",
+        "project:449da65a4daf2f2261b0"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》第一義為互相結合並附古典引文、近反義詞；第二義為電腦或網路設備間傳輸溝通。《簡編本》一般義仍優先，網路義作專業補充；此段不能直接等同所有超連結、連結器等不同技術概念。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 59,
+      "term": "音訊 / audio",
+      "conflict_id": "3585eed7ad8fa33e7b8dbd36",
+      "fingerprint": "b759531949deee890fc32e06511eb90a971fdbe5b2e28e074913eff1587fdb2e",
+      "candidate_ids": [
+        "moe-concised:613200013:0",
+        "moe-revised:05f69d0fcb2a27d5aafa0181",
+        "project:974d38a129b1a2a741ab"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》第一義為消息，第二義含音波、手勢、文字、圖像、動作與語言等訊號。第二義比聲音 audio 更廣，不能因包含音波就視為完全同義；消息、廣義訊號與聲音技術義分開保留。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 60,
+      "term": "預設 / default",
+      "conflict_id": "7c44c654cfa70a25cd9089b6",
+      "fingerprint": "3910d60772dd7441173549cddd40e8f3922b621fd7f8a3543ead97ade1fb3168",
+      "candidate_ids": [
+        "moe-concised:651100026:0",
+        "moe-revised:111e279736b0940f7edff76d",
+        "project:eb43da17ca5fc1b34872"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》為事先設定，與《簡編本》一致。預設立場只是例句，軟體預設值可視為此一般義的具體用法；英文 default 的其他領域義另依語境處理。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 61,
+      "term": "公交",
+      "conflict_id": "2a20e36b5e665a7dd6cbf529",
+      "fingerprint": "db3b3de79d3dd8a4ec9cba8e4c5fcc0b8d8bd85646477dc822d48789cdaf000b",
+      "candidate_ids": [
+        "linguipedia:633",
+        "linguipedia:634"
+      ],
+      "assessment": "候選可並存；範圍可重疊",
+      "full_reading_assessment": "《大眾運輸》說明供大眾使用的運輸方式；《公車》《公共汽車》描述固定路線載客工具，互相列為相關名稱。知識庫分別將公交對應運輸方式及車輛。",
+      "relationship_guidance": "公交可依原句指大眾運輸或公車；公車屬大眾運輸的一種，兩者有上下位關係，不是因非完全同義就要刪除其一。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 62,
+      "term": "博客",
+      "conflict_id": "84be7b2ea7f18b368533ea8c",
+      "fingerprint": "dba8aa6757bd6b4f072de61b18fa3914c174ca020574c5f93eb1471fd967c406",
+      "candidate_ids": [
+        "linguipedia:1383",
+        "linguipedia:1384"
+      ],
+      "assessment": "候選可並存；指稱不同",
+      "full_reading_assessment": "中華語文知識庫分別收錄博客／部落客與博客／部落格。本次《簡編本》快照未取得兩個臺灣詞目的完整釋義。",
+      "relationship_guidance": "博客可指寫作者，也可指網站或內容空間；依具體句子判斷部落客／部落格。保留兩筆是合理一對多，而非錯選。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 63,
+      "term": "塑封",
+      "conflict_id": "2901c1a5dd572a4611388a2c",
+      "fingerprint": "d5546013e595b557847ac7b64daa1bd030baab02dc2771a9e723f2b8233e175a",
+      "candidate_ids": [
+        "linguipedia:85",
+        "linguipedia:98"
+      ],
+      "assessment": "候選可保留；細部語境待補",
+      "full_reading_assessment": "中華語文知識庫提供塑封／膠膜及过塑、塑封／護貝兩組。本次《簡編本》未取得膠膜／護貝直接詞目，來源也未附完整操作或材料釋義。",
+      "relationship_guidance": "保留兩組對應。材料、加工或成品用途的區分只是依一般用法的暫定解讀，尚不足以把兩詞判成完全互斥；具體適用關係待原句／補充來源。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 64,
+      "term": "耳朵眼儿",
+      "conflict_id": "13e1b3d09eaefcb73d58d0f9",
+      "fingerprint": "75f3bf4676c95bd3108692f96c7fec43d1b21f57d8d228a23a2e6766894d4e53",
+      "candidate_ids": [
+        "linguipedia:1657",
+        "linguipedia:1658"
+      ],
+      "assessment": "候選可並存；部分範圍待補",
+      "full_reading_assessment": "《外聽道》完整說明其為外耳通往鼓膜的構造，並列外耳道；知識庫將耳朵眼儿對應耳洞及耳道／外耳道／外聽道兩組。",
+      "relationship_guidance": "解剖語境可用外耳道／外聽道；耳洞的口語指稱須依句子判斷，不能未查證就宣稱它永遠只指穿耳孔。保留兩組，穿孔與解剖指稱的界線尚需實際語境。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 65,
+      "term": "莱塞",
+      "conflict_id": "d3484f39b90012af75ba5967",
+      "fingerprint": "dcd7f8b730cae1f1e2c1928fd7b594ccb668f0b7465c4b924499f071ebcb7abc",
+      "candidate_ids": [
+        "linguipedia:2359",
+        "linguipedia:2360"
+      ],
+      "assessment": "可保留；修正先前過度分隔",
+      "full_reading_assessment": "《雷射》直接以放射強化光束的裝置作解釋，並列鐳射；《鐳射》明確導向雷射。中華語文知識庫同時提供雷射／鐳射／雷射光與雷射器的對應。",
+      "relationship_guidance": "雷射與雷射器在裝置語境可以重疊；不能硬性規定雷射只指光、雷射器才指設備。需要明確指光束時可用雷射光，指設備時可用雷射器；鐳射亦有辭典支持。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 66,
+      "term": "菜谱",
+      "conflict_id": "456d3635bee31bc4532cbbbc",
+      "fingerprint": "51c2feae98417e393f714c0521f9a7689ceaca5927e179c2c617cccd26803664",
+      "candidate_ids": [
+        "linguipedia:322",
+        "linguipedia:325"
+      ],
+      "assessment": "候選可並存；一對多成立",
+      "full_reading_assessment": "《食譜》是材料、用量與作法的文件；《菜單》第 1 義為菜色列表，第 2 義為購菜清單。完整閱讀比只說菜單是點餐表更廣。",
+      "relationship_guidance": "菜谱依語境可對應食譜／菜單；recipe、menu、購菜清單等各有用途。兩筆知識庫對應都可保留，不必強選唯一中文。",
+      "requires_more_evidence": false
+    },
+    {
+      "number": 67,
+      "term": "袜裤",
+      "conflict_id": "fb9e6fa2baf1f7325b9c038b",
+      "fingerprint": "f7167a71bcac51e3e34c68552182f25d8d7cd48eac88c37572966d0279b2a629",
+      "candidate_ids": [
+        "linguipedia:379",
+        "linguipedia:387"
+      ],
+      "assessment": "候選可保留；細部形制待補",
+      "full_reading_assessment": "《褲襪》明說像褲子的貼身長襪；中華語文知識庫另將袜裤列於套褲與褲襪兩組。本次未取得《套褲》完整詞目或圖示。",
+      "relationship_guidance": "兩筆來源先保留。現有資料不足以保證所有服裝形制完全相同，也不足以斷言必定不同；依原句或圖示補充後再細化關係。",
+      "requires_more_evidence": true
+    },
+    {
+      "number": 68,
+      "term": "元件 / component",
+      "conflict_id": "365ae9312418193dd603a603",
+      "fingerprint": "b25066a48778acfba908cbb1d0114c2e7616a68efb51f925184986572e879921",
+      "candidate_ids": [
+        "moe-revised:57c5cd2df67a7a08cd6cb01b",
+        "project:3b5410f2244315168fba"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》釋義涵蓋機械、電子電路與儀表的基本構件，例示齒輪、螺絲、電容；沒有直接定義軟體元件。硬體基本構件與軟體 component 依領域保留，不把此段機械／電子釋義貼成軟體定義。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 69,
+      "term": "元件 / control, widget",
+      "conflict_id": "e1a8d85576f3cb758fcb942d",
+      "fingerprint": "0dc0441dd6dd2ee2b4315a203ceca38ff42ee02e4aea161a263db9f541053f9e",
+      "candidate_ids": [
+        "moe-revised:57c5cd2df67a7a08cd6cb01b",
+        "project:8ad6d15153a388dca473"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》這筆是機械／電子等基本構件義；專案的元件／控制項用於介面。兩者可依語境區分，但這筆辭典不能證明 control、widget、component、元件及控制項完全同義。已有 control 來源暫停決定維持其指定範圍。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 70,
+      "term": "游標 / cursor",
+      "conflict_id": "d163e159df4152344f163418",
+      "fingerprint": "231b05f0ff9e8c33b2e47ab0067b60f702ac1f0484f462ef09c91ad73936eae0",
+      "candidate_ids": [
+        "moe-revised:ecbfb4a2c493ab25f58188e8",
+        "project:3b0b2b29cf71c7ee9ebe"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》直接解釋電腦螢幕標識，並分滑鼠游標及鍵盤輸入位置；可支持介面 cursor 的游標用法。資料庫 cursor 等其他專業概念仍需其來源，不能由螢幕例子一概推定。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    },
+    {
+      "number": 71,
+      "term": "硬體 / hardware",
+      "conflict_id": "cf7a1fd707293e9540d7ccd4",
+      "fingerprint": "bbb21c166f740fbe115d5c7ecd40f49f1f2380ee7858f49fb05537abc0c92192",
+      "candidate_ids": [
+        "moe-revised:5c2461190aee1d6e45423b95",
+        "project:6d9d930456cdb7d12594"
+      ],
+      "assessment": "完整義項已複核；依語境保留",
+      "full_reading_assessment": "《重編本》第一義直接描述電腦實體組件，第二義泛指實質設施，分別附設備與生活環境例子。電腦 hardware 與第一義相符；設施的引申義另列，不能讓兩義互相取代。",
+      "relationship_guidance": "《簡編本》優先、《重編本》補充；一般、歷史及技術義可並存。字面關聯未當成已確認的英文義項配對，此為 AI 複核參考，未代填人工核准。",
+      "requires_more_evidence": false,
+      "assessment_origin": "assistant-full-reading-revised-integration",
+      "assessed_at": "2026-09-29T10:26:05+00:00",
+      "revised_commit": "a6dc997417507eb510fc29822bc514de2c92728c"
+    }
+  ],
+  "revisions": [
+    {
+      "at": "2026-09-29T10:26:05+00:00",
+      "kind": "assistant-full-reading-revised-integration",
+      "dictionary_version": "2015_20260625",
+      "g0v_commit": "a6dc997417507eb510fc29822bc514de2c92728c",
+      "changed_existing_cases": 23,
+      "new_cases": 4,
+      "conflict_ids": [
+        "d324ee928fd4921b59e01935",
+        "ef3cd20dbabc3ab745edd2ef",
+        "5681bfce8760ca8e0abdcb17",
+        "8be827e94fd5bacdb1f513b7",
+        "365ae9312418193dd603a603",
+        "e1a8d85576f3cb758fcb942d",
+        "4ac9a3e1e95afcd799e209e0",
+        "70af08ad1949fb5ca9193563",
+        "0c47172573c43cbb1f9e4913",
+        "5b8d5df4ed68c4f39e51b5d7",
+        "ccea46fb3df8913cd9076821",
+        "1423cd815709a6c00c37860b",
+        "d163e159df4152344f163418",
+        "e13e3f5dfa15c9c4d69b4cb5",
+        "cf7a1fd707293e9540d7ccd4",
+        "e36557e41fdd197148222543",
+        "f40b597a0429a34bb0961ee5",
+        "c6a807efcf478653c9092be8",
+        "b0cd68911aae482dcc5136cc",
+        "99aaf754eaddd30a8c3bd771",
+        "8844c51e53ed1283d90ef057",
+        "bf1a01ef196b54bdcd9cda21",
+        "11a1e9d4a322be18ffa119a7",
+        "b27e988701e3bc924a493c86",
+        "820ff78545f8515156844682",
+        "3585eed7ad8fa33e7b8dbd36",
+        "7c44c654cfa70a25cd9089b6"
+      ],
+      "prior_notes_sha256": "7216b88aa23708a5810fa511380d2025e1af8606679ae7a6beab5ff74ba3a20e",
+      "human_approved": false
+    }
+  ]
+}
