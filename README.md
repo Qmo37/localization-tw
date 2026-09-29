@@ -4,6 +4,8 @@
 
 Claude Code 的在地化翻譯技能，確保 AI 產出的中文內容符合臺灣華語母語者的用詞習慣，避免中國用語與簡體直譯。
 
+> **開發進度**：依語境查詞、完整匯入教育部辭典與 Microsoft 術語、人工覆核等功能正在 [PR #2](https://github.com/Qmo37/localization-tw/pull/2) 進行，延續 voidful 的 [PR #1](https://github.com/Qmo37/localization-tw/pull/1) 提案。兩者尚未合併，本頁描述的是目前 `main` 的內容。
+
 ## 功能
 
 - **EN↔zh-TW 雙向翻譯**，也支援 EN↔JA↔zh-TW 三語翻譯
@@ -119,6 +121,8 @@ Copyright &copy; [中華文化總會](https://www.gacc.org.tw/)（National Cultu
 > In Taiwan, the official writing system is called 正體中文 (Standard Chinese / Orthodox Chinese), commonly referred to internationally as Traditional Chinese (繁體中文). This skill uses "Standard Chinese" as the formal name.
 
 A Claude Code skill for localization and translation, ensuring AI-generated Chinese content follows Taiwanese Mandarin conventions and avoids mainland Chinese (CN) terms.
+
+> **Work in progress**: source-aware lookup, full imports of the MOE dictionaries and Microsoft terminology, and human review are being developed in [PR #2](https://github.com/Qmo37/localization-tw/pull/2), continuing voidful's proposal in [PR #1](https://github.com/Qmo37/localization-tw/pull/1). Neither is merged yet; this page describes what is currently on `main`.
 
 ## Features
 
