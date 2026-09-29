@@ -34,6 +34,7 @@
 | callback              | 回呼                  | 回調                  |
 | interface / API       | 介面                  | 接口                  |
 | control / widget      | 元件 / 控制項         | 控件                  |
+| widget（桌面、主畫面小工具）| 小工具 / 桌面小工具 | 控件              |
 | component             | 元件                  | 組件                  |
 | HD                    | 高畫質                | 高清                  |
 | blog                  | 部落格                | 博客                  |
@@ -44,6 +45,14 @@
 | cloud computing       | 雲端運算              | 雲端計算              |
 | AI                    | 人工智慧              | 人工智能              |
 | machine learning      | 機器學習（同）        | 機器學習              |
+
+## Android / 行動裝置
+
+| English              | 臺灣正確用語          | 避免使用（中國用語）  |
+| -------------------- | --------------------- | --------------------- |
+| screen off           | 螢幕關閉              | 息屏                  |
+| screen on            | 螢幕開啟              | 亮屏                  |
+| OLED burn-in         | OLED 烙印             | OLED 燒屏             |
 
 ## 動詞與語法
 

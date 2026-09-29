@@ -2,6 +2,10 @@
 
 This document provides a curated list of dictionaries, corpora, grammar references, and verification tools useful for English-Japanese-Chinese translation work.
 
+For Taiwan localization, use Chinese Linguipedia first, then MOE **Concised** followed by **Revised**, with Microsoft terminology/product examples supplementing technical contexts. Determine the applicable sense before using this order; unresolved conflicts require human review. Use `scripts/search.py` for local evidence and [the terminology workflow](references/terminology-workflow.md) for full import and review.
+
+Chinese Linguipedia Copyright © 中華文化總會（National Cultural Association of Taiwan, NCAT）版權所有。
+
 ## Dictionaries
 
 ### Japanese-English Dictionaries
@@ -75,14 +79,16 @@ This document provides a curated list of dictionaries, corpora, grammar referenc
 - Example sentences
 - Free
 
-**MOE Dictionary (教育部國語辭典)** (https://dict.revised.moe.edu.tw)
+**MOE Concised Dictionary (教育部《國語辭典簡編本》)** (https://dict.concised.moe.edu.tw)
 
 - Official Taiwan Ministry of Education dictionary
 - Chinese-Chinese (Traditional)
-- Authoritative for Taiwan usage
-- Etymology and historical usage
+- Second source for modern general Taiwan usage, after Chinese Linguipedia
+- Preserve pronunciation groups, senses, and examples; do not infer a technical sense from a matching headword
 - Idioms and expressions
 - Free, in Traditional Chinese
+
+The [Revised dictionary](https://dict.revised.moe.edu.tw) covers both modern and historical senses. Full builds include [g0v's Revised JSON](https://github.com/g0v/moedict-data), pinned to a verified commit and checksum, after the official Concised XLSX source. Both retain complete definitions; a Concised headword match does not suppress Revised evidence. Readings, examples, quotations and cross-references remain associated with their own senses, and historical citations are not automatic recommendations for modern usage. Use `--source moe-revised` to inspect this source separately. See the workflow for snapshot versions and attribution.
 
 **Cantonese.sheik** (https://cantonese.sheik.co.uk)
 
@@ -437,12 +443,14 @@ This document provides a curated list of dictionaries, corpora, grammar referenc
 
 ### Style Guides and Standards
 
-**Microsoft Language Portal** (https://www.microsoft.com/en-us/language)
+**Microsoft Terminology** (https://learn.microsoft.com/en-us/globalization/reference/microsoft-terminology)
 
 - Terminology for software localization
 - Style guides for multiple languages
 - Japanese and Chinese available
 - Free
+
+The full importer reads Taiwan-applicable records from Microsoft's official TBX archive and preserves the geographical metadata. Supplementary [Termic](https://termic.me/) queries use `scripts/fetch-microsoft-terms.py`; glossary definitions and product translation-memory examples remain distinct. Termic's `2020+` period is a dataset label, not a promise of current product wording.
 
 **Apple Style Guide**
 
@@ -509,9 +517,11 @@ When working on a translation, keep these resources handy:
 
 **For Specialized Terms**:
 
-- [ ] Microsoft Language Portal
+- [ ] Chinese Linguipedia and the MOE Concised dictionary, with applicable senses checked first
+- [ ] `python3 scripts/search.py <term> --mode exact`
+- [ ] Microsoft terminology and product-context evidence where needed
 - [ ] Weblio (Japanese technical terms)
-- [ ] MOE Dictionary (Chinese official terms)
+- [ ] Human review of disagreements; retain sources and scope
 
 ## Tips for Using Resources Effectively
 
