@@ -71,6 +71,8 @@ python3 -m unittest discover -s tests -v
 
 指定來源的補答另存於 `data/source-review-policies.jsonl`；查詢預設略過暫停配對，可用 `--include-held` 查閱原始資料。離線重建會把補答、停用範圍及 `data/sense-review-notes.json` 的複核參考同步到 HTML、CSV 與摘要，並將這些輸入納入版本識別。審核頁可切換仍需判斷、已補答與複核參考；複核筆記不代表人工核准，來源內容改變時會重新列入待判斷。
 
+Microsoft 術語庫的 10,770 筆並列譯法可先分流：`python3 scripts/triage-glossary-variants.py` 把縮寫、產品名、範圍長短與異體字的差異列為參考，只把含大陸或港式用語的少數項目交給人看。`build-glossary-review.py` 產生簡短問卷，`import-glossary-review.py` 匯入答案為指定來源的處理紀錄。分流是 AI 評估，不代表人工核准。
+
 完整流程、資料範圍與搜尋限制見 [詞彙工作流程](references/terminology-workflow.md)。
 
 ## 兩岸詞彙資料庫
@@ -112,6 +114,12 @@ localization-tw/
 │   ├── build-vocabulary.py           # 完整建檔、比對與報告
 │   ├── search.py                     # 本地搜尋與選用線上補查
 │   ├── review-conflicts.py           # 驗證並匯入人工決定
+│   ├── build-human-review.py         # 產生剩餘人工審核的補答頁
+│   ├── import-human-review.py        # 匯入補答為指定來源的處理紀錄
+│   ├── build-review-followup.py      # 從截圖覆核產生接續補答頁
+│   ├── triage-glossary-variants.py   # 分流 Microsoft 術語並列譯法
+│   ├── build-glossary-review.py      # 產生大陸或港式用語確認問卷
+│   ├── import-glossary-review.py     # 匯入問卷答案
 │   ├── fetch-linguipedia.py          # 可接續的中華語文知識庫下載
 │   ├── fetch-microsoft-terms.py      # Termic 查詢與批次輸出
 │   └── terminology/                 # 來源解析與覆核邏輯
@@ -237,6 +245,8 @@ Use `--refresh` to acquire new snapshots. Matching headwords do not establish ma
 
 Scoped source answers live in `data/source-review-policies.jsonl`. Search excludes held mappings unless `--include-held` is set. Offline builds include these policies and the assistant notes in `data/sense-review-notes.json` in their version identity and publish both in HTML, CSV, and the summary. The review page separates open questions, received answers, and reference notes. Notes do not imply human approval; changed evidence makes earlier annotations inactive and reopens the affected items.
 
+The 10,770 Microsoft glossary variants can be triaged with `python3 scripts/triage-glossary-variants.py`. Differences that are only abbreviations, product names, scope or spelling are marked reference-only; the few groups with mainland or Hong Kong-style forms go to a person through `build-glossary-review.py`, and `import-glossary-review.py` records the answers as source-scoped policies. Triage is an assistant assessment, not human approval.
+
 ## Cross-Strait Vocabulary Database
 
 A built-in script fetches the complete cross-strait terminology database from Chinese Linguipedia:
@@ -276,6 +286,12 @@ localization-tw/
 │   ├── build-vocabulary.py           # Full import, comparison, and reports
 │   ├── search.py                     # Local and optional online lookup
 │   ├── review-conflicts.py           # Import human decisions
+│   ├── build-human-review.py         # Build the remaining-questions page
+│   ├── import-human-review.py        # Import answers as source-scoped policies
+│   ├── build-review-followup.py      # Build the follow-up page from screenshot review
+│   ├── triage-glossary-variants.py   # Triage Microsoft glossary variants
+│   ├── build-glossary-review.py      # Build the regional-usage questionnaire
+│   ├── import-glossary-review.py     # Import questionnaire answers
 │   ├── fetch-linguipedia.py          # Resumable source download
 │   ├── fetch-microsoft-terms.py      # Termic single/batch lookup
 │   └── terminology/                 # Source and review implementation
