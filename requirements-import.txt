@@ -1,0 +1,2 @@
+# Only the MOE XLSX importer needs this; local search uses Python's standard library.
+openpyxl>=3.1,<4

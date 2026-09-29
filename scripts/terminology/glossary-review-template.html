@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>臺灣用語・大陸或港式用語確認</title>
+<style>
+:root{color-scheme:light;--paper:#f4f6f2;--ink:#223d39;--muted:#596e68;--line:#d6e0d8;--green:#186553;--pale:#e7f0e8;--amber:#8a5c19;--flag:#fbe9e4;--flagink:#8c3a26}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"Noto Sans CJK TC","Microsoft JhengHei",sans-serif}main{max-width:860px;margin:auto;padding:36px 22px 56px}h1,h2,h3,p{margin:0 0 12px}h1{font-size:30px;letter-spacing:.03em}h2{font-size:20px}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:700}.muted{color:var(--muted)}small{color:var(--muted)}
+.card{background:white;border:1px solid var(--line);border-radius:14px;padding:22px;margin:18px 0}.card[data-done=true]{border-color:var(--green)}
+.forms{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px}.form{padding:4px 11px;border-radius:7px;background:var(--pale);font-size:15px}.form.flag{background:var(--flag);color:var(--flagink);font-weight:650}
+.definition{font-size:14px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;margin:10px 0}
+fieldset{border:0;padding:0;margin:14px 0}legend{font-weight:650;margin-bottom:8px}.option{display:flex;gap:12px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;margin:8px 0;cursor:pointer}.option:has(input:checked){border-color:var(--green);background:var(--pale)}
+input[type=radio]{accent-color:var(--green);width:18px;height:18px;flex:0 0 18px;margin:5px 0 0}textarea,input[type=text]{font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:8px;width:100%}textarea{resize:vertical;min-height:70px}
+button{font:inherit;font-size:14px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);padding:9px 15px;cursor:pointer}button:hover{border-color:var(--green);background:var(--pale)}button.primary{background:var(--green);color:white;border-color:var(--green)}
+button:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #bc811f;outline-offset:3px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}.scope{padding:13px 16px;background:var(--pale);border-radius:9px;font-size:14px}
+.stats{display:flex;gap:12px;margin:18px 0}.stat{padding:12px 20px;background:white;border:1px solid var(--line);border-radius:12px}.stat strong{font-size:26px;display:block;line-height:1.2}.stat span{font-size:13px}
+details{margin:12px 0}summary{cursor:pointer;font-weight:650}#export-text{font-family:ui-monospace,monospace;font-size:12px;min-height:180px}#status{min-height:24px;font-size:14px;color:var(--muted)}[hidden]{display:none!important}
+@media(max-width:600px){main{padding:20px 14px}h1{font-size:25px}.card{padding:16px}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">LOCALIZATION-TW / 術語並列分流</p>
+<h1>大陸或港式用語確認</h1>
+<p>微軟術語庫的臺灣欄裡，有些形式帶有大陸或港式用字，而且同組沒有逐字對應的臺灣寫法。共 <strong id="total"></strong> 組，只需要決定這些標示的形式要不要擋下來。</p>
+<p class="scope">紅底標示的是被系統標成大陸或港式的形式。你的回答只適用於該組列出的來源，不會推定整個英文詞或中文詞是否禁用；沒把握就選「待查」。這裡不會直接改寫正式詞表。</p>
+<div class="stats"><div class="stat"><strong id="answered">0</strong><span>組已回答</span></div><div class="stat"><strong id="remaining">0</strong><span>組未回答</span></div></div>
+<div class="toolbar"><button class="primary" id="download">下載答案 JSON</button><button id="copy">複製答案</button><label>審核者（選填）<br><input type="text" id="reviewer" autocomplete="name" placeholder="姓名或暱稱"></label></div>
+<p id="status" role="status" aria-live="polite"></p>
+</header>
+<section id="questions" aria-label="題目"></section>
+<details class="card"><summary>完整答案文字（下載沒反應時可複製）</summary><textarea id="export-text" readonly spellcheck="false" aria-label="完整答案"></textarea></details>
+<footer><p class="muted"><small>來源：Microsoft 術語庫（HKG, TWN 欄）。分流規則見 scripts/terminology/triage.py；這是 AI 分流，你的回答才是人工決定。</small></p></footer>
+</main>
+<script id="payload" type="application/json">__PAYLOAD__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('payload').textContent);
+const $=id=>document.getElementById(id);
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const key='localization-tw-glossary-regional:v1:'+data.run_id;
+let state={reviewer:'',answers:{}};
+try{const saved=JSON.parse(localStorage.getItem(key)||'null');if(saved&&saved.answers)state=saved}catch(e){}
+const CHOICES=[
+  ['block','不採用標示的形式','只封鎖紅底標示的形式，保留同組其他形式。'],
+  ['keep-as-vendor-wording','保留為微軟產品用字','當作微軟自己的寫法留作參考，不推薦給臺灣在地化使用。'],
+  ['defer','待查','先不決定，之後有用例再看。']];
+function persist(){
+  state.reviewer=$('reviewer').value.trim();
+  try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}
+  refresh();
+}
+function payload(){
+  const answers=data.questions.filter(q=>state.answers[q.id]?.choice).map(q=>({
+    question_id:q.id,choice:state.answers[q.id].choice,note:(state.answers[q.id].note||'').trim(),
+    blocked_forms:q.flagged_forms,forms:q.forms,conflict_ids:q.conflict_ids,fingerprints:q.fingerprints,
+    answered_at:state.answers[q.id].at}));
+  return {kind:'localization-tw-glossary-regional-review',version:1,run_id:data.run_id,
+    authority:'human-answers',reviewer:state.reviewer,exported_at:new Date().toISOString(),answers};
+}
+function refresh(){
+  const done=data.questions.filter(q=>state.answers[q.id]?.choice).length;
+  $('answered').textContent=done;$('remaining').textContent=data.questions.length-done;
+  document.querySelectorAll('.card[data-q]').forEach(c=>c.dataset.done=!!state.answers[c.dataset.q]?.choice);
+  $('export-text').value=JSON.stringify(payload(),null,2);
+}
+function render(){
+  $('total').textContent=data.questions.length;$('reviewer').value=state.reviewer||'';
+  $('questions').innerHTML=data.questions.map((q,i)=>{
+    const a=state.answers[q.id]||{};
+    const forms=q.forms.map(f=>`<span class="form${q.flagged_forms.includes(f)?' flag':''}">${esc(f)}</span>`).join('');
+    const options=CHOICES.map(([v,label,help])=>`<label class="option"><input type="radio" name="c-${esc(q.id)}" value="${v}"${a.choice===v?' checked':''}><span><strong>${label}</strong><br><small>${help}</small></span></label>`).join('');
+    return `<article class="card" data-q="${esc(q.id)}"><h2>${i+1}. ${esc(q.title)}</h2><p class="muted"><small>英文詞：${esc(q.english.join('、'))}</small></p><div class="forms" aria-label="這組的臺灣譯法">${forms}</div>${q.definition?`<p class="definition">${esc(q.definition)}</p>`:''}<fieldset><legend>這些紅底形式要怎麼處理？</legend>${options}</fieldset><label>補充或你想用的寫法（選填）<textarea data-note="${esc(q.id)}">${esc(a.note||'')}</textarea></label></article>`}).join('');
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.addEventListener('change',()=>{
+    const id=r.name.slice(2);state.answers[id]={...state.answers[id],choice:r.value,at:new Date().toISOString()};persist()}));
+  document.querySelectorAll('textarea[data-note]').forEach(t=>t.addEventListener('input',()=>{
+    const id=t.dataset.note;state.answers[id]={...state.answers[id],note:t.value};persist()}));
+  refresh();
+}
+$('reviewer').addEventListener('input',persist);
+$('download').addEventListener('click',()=>{
+  const blob=new Blob([JSON.stringify(payload(),null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='glossary-regional-review-answered.json';a.click();
+  $('status').textContent='已下載。把檔案交回即可。'});
+$('copy').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText($('export-text').value);$('status').textContent='已複製答案。'}
+  catch(e){$('export-text').closest('details').open=true;$('export-text').select();$('status').textContent='無法自動複製，請手動複製下方文字。'}});
+render();
+</script>
+</body>
+</html>

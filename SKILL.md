@@ -7,7 +7,21 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 
 ## 快速參考：臺灣用語規範
 
-翻譯或產生中文內容時，**最優先**遵守此規範。完整對照表見 [references/vocabulary.md](./references/vocabulary.md)。
+翻譯或產生中文內容時，依語境參考以下專案速查表。完整對照表見 [references/vocabulary.md](./references/vocabulary.md)；有疑義時依下方來源順序查證，速查表不會自動高於來源資料。
+
+### 來源順序與義項判斷
+
+1. **中華語文知識庫**：優先參考臺灣用語、兩岸差異與適用義項。
+2. **教育部辭典**：以《國語辭典簡編本》優先，查現代一般用語的詞義、注音與例句；《重編國語辭典修訂本》（g0v 整理）補充未收詞目、更多義項與古今用例。
+3. **Microsoft 術語庫、翻譯記憶庫等**：補充技術概念及產品脈絡。
+
+中華語文知識庫 Copyright © 中華文化總會（National Cultural Association of Taiwan, NCAT）版權所有。
+
+先辨識句子的領域與詞義，再比較來源。「行程」在電腦領域可對應 process；旅遊或日常安排是其他義項。相同詞目不代表同一意思，不要自動套用辭典第一義，也不要把大陸欄中的共同用語一律視為禁用詞。《簡編本》有詞目不代表已涵蓋所有義項；《重編本》完整義項可並列補充，但古今例證不自動成為現代建議用法。兩部辭典的字面差異先依語境判讀，未能釐清的衝突才送人工覆核。
+
+在技能安裝目錄執行 `python3 scripts/search.py <詞彙> --mode exact` 查本地資料；可用 `--domain 電腦資訊 --json` 檢查來源、完整釋義與覆核狀態。其他工作目錄請使用此技能的絕對路徑。英文查詢延伸出的 linked-headword-not-verified-sense 只表示同詞目關聯，仍須判斷語境。
+
+衝突須由人工覆核。pending 或 deferred 項目可呈現候選與來源，但不能當成確定的替換規則；已覆核決定也只適用其記錄語境。不得代填覆核者或將 AI 建議標示為人工決定。建檔、線上補查與覆核操作見 [references/terminology-workflow.md](./references/terminology-workflow.md)，一般翻譯只需查詢現有索引。
 
 ### 核心原則
 
@@ -95,7 +109,7 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 
 **按領域檢查中國用語污染：**
 
-根據翻譯內容涉及的領域，主動檢查高風險詞彙。遇到不確定的詞彙時，用 Grep 搜尋 `references/linguipedia-cross-strait.md`。
+根據翻譯內容涉及的領域，主動檢查高風險詞彙。遇到不確定的詞彙時，用 `python3 scripts/search.py <詞彙> --mode exact` 查完整索引。若尚未建檔，可查既有參考表，但須保留資料覆蓋率不足的說明。
 
 | 領域 | 污染程度 | 常見錯誤 → 正確用法 |
 | --- | --- | --- |
@@ -105,7 +119,7 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 | 政經社會 | 中等 | 數字經濟→數位經濟、互聯網→網際網路、貸款→貸款（注意語境）|
 | 交通運輸 | 中等 | 出租車→計程車、地鐵→捷運、公交車→公車 |
 
-> **臺灣特有詞彙提示：** 翻譯中若出現臺灣獨有概念（如：滷肉飯、捷運、健保、立委），保留原詞不需轉換。可用 `Grep "臺灣特有" references/linguipedia-cross-strait.md` 查詢完整清單。
+> **依語境查證：** 上表是常見翻譯情境，不能直接做全域替換。例如「土豆」須分辨臺灣與中國的不同詞義，「主播」也須分辨新聞播報與實況情境。翻譯中出現臺灣概念時，保留適用用語並按需查證；既有參考表不代表來源全量。
 
 **一致性：**
 - 同一術語全文統一
@@ -145,11 +159,12 @@ description: 正體中文（臺灣）在地化與翻譯技能。當專案需要 
 | 文件 | 內容 |
 | --- | --- |
 | [references/vocabulary.md](./references/vocabulary.md) | 臺灣用語完整對照表（名詞、動詞、句式、標點） |
-| [references/linguipedia-cross-strait.md](./references/linguipedia-cross-strait.md) | 兩岸差異用詞完整對照（4,800+ 筆，來自中華語文知識庫） |
+| [references/terminology-workflow.md](./references/terminology-workflow.md) | 完整建檔、搜尋語意、來源順序、人工覆核與更新流程 |
+| [references/linguipedia-cross-strait.md](./references/linguipedia-cross-strait.md) | 既有兩岸詞彙參考表；完整來源請查建檔後的本地索引 |
 | [references/chinese-traditional.md](./references/chinese-traditional.md) | 繁體中文語言特性：量詞、成語、臺港澳差異、翻譯策略 |
 | [references/english.md](./references/english.md) | 英文語言特性：句式、正式度、慣用語、翻譯策略 |
 | [references/japanese.md](./references/japanese.md) | 日文語言特性：敬語五階、語尾、助詞、翻譯策略 |
 | [translation-challenges.md](./translation-challenges.md) | 常見翻譯挑戰的詳細範例與解法 |
 | [tools-resources.md](./tools-resources.md) | 辭典、語料庫、文法參考、驗證工具彙整 |
 
-> **注意：** `linguipedia-cross-strait.md` 檔案較大（~4,800 筆），不建議全文載入上下文。遇到不確定的兩岸用詞差異時，可用 Grep 工具搜尋該檔案中的特定詞彙。
+> **注意：** 完整索引與覆核證據檔不宜全文載入上下文。查特定詞彙並限制結果數；以 reports/full-run-summary.json 確認來源版本與實際覆蓋率。

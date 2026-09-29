@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; connect-src 'none'; img-src data:;">
+<title>臺灣用語・人工覆核</title>
+<style>
+:root{color-scheme:light;--ink:#173734;--muted:#526b68;--line:#d6e2dc;--accent:#176d5a}
+*{box-sizing:border-box}body{font:16px/1.65 "Noto Sans CJK TC","Noto Sans TC","Microsoft JhengHei","PingFang TC",system-ui,sans-serif;margin:0;background:#f2f5f1;color:var(--ink)}
+header,main,footer{max-width:1120px;margin:auto;padding:28px}h1{font-size:32px;margin:0}h2{font-size:23px;margin:0 0 8px}h3{font-size:17px;margin:0 0 10px}
+p{margin:8px 0}.muted,small{color:var(--muted)}.stats{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}.stat{background:white;border:1px solid var(--line);padding:12px 20px;border-radius:10px}.stat strong{display:block;font-size:25px}
+.toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:end}.toolbar label{flex:1;min-width:170px}.toolbar input,.toolbar select{display:block;width:100%}label{display:block;font-size:14px}input,select,textarea,button{font:inherit;padding:9px 12px;border:1px solid var(--line);border-radius:7px;background:white;color:var(--ink)}textarea{width:100%;min-height:76px}button{cursor:pointer;background:var(--accent);color:white;border-color:var(--accent)}button:disabled{opacity:.45;cursor:default}
+.card{background:white;border:1px solid var(--line);border-radius:12px;padding:22px;margin-bottom:22px}.badge{display:inline-block;font-size:13px;padding:2px 9px;border-radius:20px;background:#eef3ef;margin:0 6px 8px 0}.pending{background:#fff1ce}.sources{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:18px 0}.source{background:#f7f9f6;border:1px solid var(--line);border-radius:8px;padding:14px;overflow-wrap:anywhere}.definition{white-space:pre-wrap}.decision{border-top:1px solid var(--line);padding-top:15px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fields input,.fields select{width:100%}.candidates label{margin:5px 0;overflow-wrap:anywhere}a{color:var(--accent)}.pager{display:flex;gap:14px;align-items:center;margin:20px 0}.notice{font-size:14px}.error{color:#9d3027}details{margin-top:10px}summary{cursor:pointer}#message{min-height:28px}footer{font-size:13px;border-top:1px solid var(--line)}
+@media(max-width:650px){header,main,footer{padding:18px}.fields{grid-template-columns:1fr}h1{font-size:27px}}
+header{padding-bottom:0}#message:empty{min-height:0;margin:0}
+.secondary{background:white;color:var(--accent)}.export-panel{margin-top:18px;padding:18px;background:white;border:1px solid var(--line);border-radius:10px}.export-panel textarea{height:180px;font:13px/1.5 monospace;white-space:pre;overflow:auto}.export-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.issue-link{background:transparent;color:var(--accent);border:0;text-align:left;padding:3px 0;text-decoration:underline}#restore-file{max-width:100%}.stale{background:#fff1ce;padding:10px;border-radius:7px}
+</style>
+<header>
+ <p class="muted">localization-tw / 詞彙資料比對</p><h1>臺灣用語・人工覆核</h1>
+ <p>先確認語境，再查中華語文知識庫；教育部辭典以《簡編本》優先、《重編本》補充，另參考專業術語。以下是待查候選，並不代表來源一定有錯。</p>
+ <div class="stats" id="stats"></div>
+ <p id="review-summary" class="notice"></p>
+ <div class="toolbar">
+  <label>覆核範圍<select id="group"><option value="primary">主要來源與專案用語</option><option value="supplementary">Microsoft 內部變體</option><option value="">全部候選</option></select></label>
+  <label>本次處理狀態<select id="work"><option value="pending">仍需判斷</option><option value="answered">已補答／已有決定</option><option value="reference">複核參考，不用重答</option><option value="">全部</option></select></label>
+  <label>搜尋詞目或候選用詞<input id="query" type="search" placeholder="例如：行程、process、根據"></label>
+  <label>待查原因<select id="kind"><option value="">全部原因</option></select></label>
+  <label>覆核狀態<select id="status"><option value="">全部狀態</option><option value="pending">待覆核</option><option value="resolved">已覆核</option><option value="deferred">保留待查</option></select></label>
+ </div>
+ <div class="toolbar" style="margin-top:16px">
+  <label>覆核者姓名<input id="reviewer" autocomplete="name" placeholder="匯出前請填寫"></label>
+  <button id="backup" class="secondary">備份全部草稿</button>
+  <button id="export">匯出已完成決定</button>
+ </div>
+ <p class="notice muted">還沒填完也能備份，包含所有分頁的勾選與文字。填寫完整的決定可先匯出，其餘草稿繼續保留；匯入專案後才會套用。這個頁面不會傳送資料。</p>
+ <p id="draft-progress" role="status" aria-live="polite"></p>
+ <details id="issues"><summary id="issue-summary">查看待補資料</summary><ul id="issue-list"></ul></details>
+ <details id="restore"><summary>還原草稿備份</summary>
+  <p class="notice">可開啟備份檔，或貼上備份 JSON。已有不同選擇時會保留目前草稿，匯入內容也會留在備份中。</p>
+  <label>選擇草稿 JSON<input id="restore-file" type="file" accept=".json,application/json"></label>
+  <label>或貼上草稿 JSON<textarea id="restore-text" spellcheck="false"></textarea></label><button id="restore-paste" class="secondary">還原貼上的草稿</button>
+ </details>
+ <p id="message" role="status" aria-live="polite"></p>
+ <section id="export-panel" class="export-panel" hidden aria-labelledby="export-title">
+  <h2 id="export-title"></h2><p id="export-description" class="notice"></p>
+  <label>可複製的 JSON<textarea id="export-text" readonly spellcheck="false"></textarea></label>
+  <div class="export-actions"><button id="download">下載 JSON</button><button id="copy" class="secondary">複製 JSON</button><button id="select-text" class="secondary">選取全文</button></div>
+  <p id="export-status" role="status" aria-live="polite"></p>
+ </section>
+</header>
+<main><div class="pager"><button id="prev">上一頁</button><span id="position" aria-live="polite"></span><button id="next">下一頁</button></div><div id="list"></div></main>
+<footer><p>中華語文知識庫 Copyright © 中華文化總會（National Cultural Association of Taiwan, NCAT）版權所有。</p><p>中華民國教育部。《國語辭典簡編本》、《重編國語辭典修訂本》（g0v 整理）。版本與來源列於各筆資料；釋義原文另保存在證據檔。</p><p id="run"></p></footer>
+<script id="payload" type="application/json">__PAYLOAD__</script>
+<script>
+'use strict';
+const data=JSON.parse(document.getElementById('payload').textContent);
+const $=id=>document.getElementById(id), prefix='localization-tw-review:', key=prefix+'drafts:v1';
+const labels={linguipedia:'① 中華語文知識庫','moe-concised':'② 教育部《簡編本》優先','moe-revised':'② 教育部《重編本》補充（g0v）',microsoft:'③ Microsoft 術語','microsoft-termic':'Microsoft 術語（Termic）','microsoft-tm':'Microsoft 產品字串（Termic）',project:'專案既有用語','legacy-reference':'既有參考表'};
+const kinds={regional_policy:'臺灣用語與避免用語重疊',translation_choice:'英文詞的譯法差異',sense_alignment:'專業義項待確認',regional_variants:'兩岸用語對應待確認',glossary_variants:'術語譯法可否並用'};
+const statuses={pending:'待覆核',resolved:'已覆核',deferred:'保留待查'};
+const actions={'':'尚未決定',select:'採用選取用法',separate_senses:'依語境分義',allow_variants:'確認可並用',reject_link:'否決這個配對',defer:'保留待查'};
+let drafts={},archives=[],page=0,exportFilename='',recovered=0,storageWarning='';
+const conflictsById=new Map(data.conflicts.map(c=>[c.id,c]));
+function isObject(v){return !!v&&typeof v==='object'&&!Array.isArray(v)}
+function validDraft(d){return isObject(d)&&typeof d.fingerprint==='string'&&typeof d.action==='string'&&Object.hasOwn(actions,d.action)&&Array.isArray(d.selected_ids)&&d.selected_ids.every(id=>typeof id==='string')&&typeof d.scope==='string'&&typeof d.rationale==='string'}
+function validateBackup(value){
+ if(!isObject(value)||value.kind!=='localization-tw-review-draft'||value.schema_version!==1||!isObject(value.drafts)||typeof value.reviewer!=='string'||!Object.values(value.drafts).every(validDraft)||!Array.isArray(value.archives))throw Error('這不是支援的草稿備份格式；現有選擇未變更。');
+ return value;
+}
+// Keep a stable storage key across report rebuilds. Old run-specific keys remain
+// untouched, and their complete contents stay available in a draft backup.
+try{
+ const saved=localStorage.getItem(key);
+ if(saved){const value=validateBackup(JSON.parse(saved));drafts=value.drafts;archives=value.archives;$('reviewer').value=value.reviewer}
+ const keys=Object.keys(localStorage).filter(k=>k.startsWith(prefix)&&k!==key).sort((a,b)=>Number(b===prefix+data.run_id)-Number(a===prefix+data.run_id)||a.localeCompare(b));
+ for(const oldKey of keys){
+  let previous;try{previous=JSON.parse(localStorage.getItem(oldKey))}catch(e){storageWarning='有舊草稿無法讀取，原始儲存資料仍保留。';continue}
+  if(!isObject(previous)||!Object.values(previous).every(validDraft))continue;
+  if(!archives.some(a=>a.storage_key===oldKey&&JSON.stringify(a.drafts)===JSON.stringify(previous)))archives.push({storage_key:oldKey,drafts:previous});
+  for(const [id,d] of Object.entries(previous))if(conflictsById.has(id)&&!Object.hasOwn(drafts,id)){drafts[id]=d;recovered++}
+ }
+}catch(e){storageWarning='瀏覽器草稿無法讀取；請保留原頁面，並使用草稿備份。'}
+function node(tag,text,cls){const n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n}
+function backupValue(){return {kind:'localization-tw-review-draft',schema_version:1,run_id:data.run_id,saved_at:new Date().toISOString(),reviewer:$('reviewer').value,drafts,archives}}
+function persist(){try{localStorage.setItem(key,JSON.stringify(backupValue()))}catch(e){storageWarning='瀏覽器無法儲存草稿；目前選擇仍在此頁面，離開前請按「備份全部草稿」。';$('message').textContent=storageWarning;$('message').className='error'}}
+function freshDraft(c){return {fingerprint:c.fingerprint,selected_ids:[],scope:c.domain,rationale:'',action:''}}
+function edit(c,field,value){
+ const previous=drafts[c.id];
+ if(previous&&previous.fingerprint!==c.fingerprint)archives.push({conflict_id:c.id,draft:previous});
+ drafts[c.id]={...(previous?.fingerprint===c.fingerprint?previous:freshDraft(c)),[field]:value,updated_at:new Date().toISOString()};persist();updateProgress();
+ if(!$('export-panel').hidden)$('export-status').textContent='草稿已有變更；請再次按備份或匯出，更新下方 JSON。';
+}
+function missingFields(c,d){
+ const missing=[];
+ if(d.fingerprint!==c.fingerprint)return ['來源證據已更新，需重新確認'];
+ if(!d.action)missing.push('你的決定');
+ if(!d.scope.trim())missing.push('適用語境');
+ if(!d.rationale.trim())missing.push('理由');
+ if(d.action==='select'&&!d.selected_ids.length)missing.push('採用的候選紀錄');
+ const allowed=new Set(c.candidates.map(r=>r.id));if(d.selected_ids.some(id=>!allowed.has(id)))missing.push('候選紀錄已變更');
+ return missing;
+}
+function collect(){
+ const ready=[],incomplete=[],unknown=[];
+ for(const [id,d] of Object.entries(drafts)){const c=conflictsById.get(id);if(!c){unknown.push(id);continue}const missing=missingFields(c,d);if(missing.length)incomplete.push({c,missing});else ready.push({c,d})}
+ return {ready,incomplete,unknown};
+}
+function jumpTo(c){
+ $('work').value='';$('group').value=c.review_group;$('kind').value='';$('status').value='';$('query').value='';page=Math.floor(filtered().findIndex(r=>r.id===c.id)/12);render();
+ const card=$('conflict-'+c.id);card.scrollIntoView({block:'start'});card.querySelector('.decision select').focus({preventScroll:true});
+}
+function updateProgress(){
+ const {ready,incomplete,unknown}=collect(),reviewer=$('reviewer').value.trim();
+ $('draft-progress').textContent=`已填寫 ${Object.keys(drafts).length} 筆草稿；${ready.length} 筆欄位完整；${incomplete.length+unknown.length} 筆待補或待確認。`+(!reviewer&&ready.length?' 匯出決定前請填寫覆核者姓名。':'');
+ $('issues').hidden=!incomplete.length&&!unknown.length;$('issue-summary').textContent=`查看 ${incomplete.length+unknown.length} 筆待補資料`;$('issue-list').replaceChildren();
+ for(const {c,missing} of incomplete){const li=node('li'),button=node('button',c.term+'：'+missing.join('、'),'issue-link');button.onclick=()=>jumpTo(c);li.append(button);$('issue-list').append(li)}
+ if(unknown.length)$('issue-list').append(node('li',`${unknown.length} 筆草稿不在這次比對資料中，仍會保存在草稿備份。`));
+}
+function disposition(c){
+ if(c.source_policies?.some(p=>p.active)||c.status==='resolved'||c.status==='deferred')return 'answered';
+ if(c.assistant_review?.active&&!c.assistant_review.requires_more_evidence)return 'reference';
+ return 'pending';
+}
+function filtered(){const q=$('query').value.trim().toLocaleLowerCase();return data.conflicts.filter(c=>(!$('work').value||disposition(c)===$('work').value)&&(!$('group').value||c.review_group===$('group').value)&&(!$('kind').value||c.kind===$('kind').value)&&(!$('status').value||c.status===$('status').value)&&(!q||[c.term,...c.candidates.flatMap(r=>[...r.en,...r.tw,...r.cn])].join(' ').toLocaleLowerCase().includes(q)))}
+function render(){
+ const rows=filtered(),pages=Math.max(1,Math.ceil(rows.length/12));page=Math.min(page,pages-1);
+ $('position').textContent=`${rows.length} 筆・第 ${page+1} / ${pages} 頁`;$('prev').disabled=page===0;$('next').disabled=page>=pages-1;$('list').replaceChildren();
+ for(const c of rows.slice(page*12,page*12+12)){
+  const card=node('article',undefined,'card');card.id='conflict-'+c.id;card.append(node('span','整組判定：'+statuses[c.status],'badge '+(c.status==='pending'?'pending':'')),node('span',kinds[c.kind],'badge'),node('h2',c.term),node('p',c.reason));
+  if(c.assistant_review){const n=c.assistant_review,details=node('details');details.append(node('summary',n.active?'複核參考：'+n.assessment:'舊複核筆記（證據已變動）'),node('p',n.full_reading_assessment),node('p',n.relationship_guidance),node('p','此為複核筆記，未代填成人工核准。','muted'));card.append(details)}
+  for(const p of c.source_policies||[]){const details=node('details',undefined,'scoped-answer');details.open=true;details.append(node('summary',p.active?'已收錄的人工補答':'舊人工補答（證據已變動，未套用）'),node('p',p.decision_text),node('p','適用範圍：'+p.scope));if(p.note)details.append(node('p','補充：'+p.note));details.append(node('p','僅適用於指定來源；完整原始資料仍保留。','muted'));card.append(details)}
+  if(c.decision){const previous=node('details');previous.append(node('summary','既有人工決定'),node('p',`${c.decision.reviewed_by}：${actions[c.decision.action]}；語境：${c.decision.scope}；理由：${c.decision.rationale}`));card.append(previous)}
+  const sources=node('div',undefined,'sources');
+  for(const r of c.candidates){const s=node('section',undefined,'source');s.append(node('h3',labels[r.source]||r.source));
+   for(const p of r.source_review||[]){const text=p.use_status==='on-hold'?'此來源配對已暫停':p.active?'此來源保留，語境／表述待核對':'舊來源處理紀錄，未套用';s.append(node('p',text,'source-policy '+(p.use_status==='on-hold'?'error':'muted')))}
+   if(r.en.length)s.append(node('p','EN：'+r.en.join(' / ')));if(r.tw.length)s.append(node('p','臺灣：'+r.tw.join(' / ')));if(r.cn.length)s.append(node('p',(r.source==='project'?'專案避免用語：':'大陸：')+r.cn.join(' / ')));
+   if(r.relation)s.append(node('p','關係：'+r.relation));s.append(node('p','領域：'+(r.domain||'未指定'),'muted'));
+   if(r.part_of_speech)s.append(node('p','詞性：'+r.part_of_speech));
+   if(r.product||r.platform)s.append(node('p','產品／平台：'+[r.product,r.platform].filter(Boolean).join(' / ')));
+   if(r.geographical_usage?.length)s.append(node('p','適用地區：'+r.geographical_usage.join(' / ')));
+   if(r.source_forms){const original=node('details');original.append(node('summary','原始詞形與註記'));for(const [k,v] of Object.entries(r.source_forms))if(v)original.append(node('p',({en:'英文',tw:'臺灣',cn:r.source==='project'?'專案避免用語':'大陸'}[k]||k)+'：'+v));s.append(original)}
+   if(r.usage_note)s.append(node('p',r.usage_note,'muted'));
+   for(const p of r.pronunciations)s.append(node('p','讀音'+(p.order?' '+p.order:'')+'：'+[p.bopomofo,p.pinyin].filter(Boolean).join(' / ')));
+   for(const d of r.definitions)s.append(node('p',d.display||d.text,'definition'));
+   if(!r.definitions.length)s.append(node('p','此筆來源未提供釋義。','muted'));
+   const details=node('details');details.append(node('summary','來源與版本'),node('p',r.id),node('p',r.source_version||'工作目錄現有內容'));
+   if(/^https:\/\//.test(r.url)){const a=node('a','開啟來源');a.href=r.url;a.target='_blank';a.rel='noopener noreferrer';details.append(a)}else details.append(node('p',r.url));
+   if(/^https:\/\//.test(r.data_url||'')){const a=node('a','固定版本的 g0v 資料');a.href=r.data_url;a.target='_blank';a.rel='noopener noreferrer';details.append(node('p'),a)}s.append(details);sources.append(s)
+  }card.append(sources);
+  const d=drafts[c.id]?.fingerprint===c.fingerprint?drafts[c.id]:freshDraft(c);
+  if(drafts[c.id]&&drafts[c.id].fingerprint!==c.fingerprint){const old=node('details',undefined,'stale');old.append(node('summary','來源證據已更新，請重新確認；先前草稿仍保留'),node('p',JSON.stringify(drafts[c.id])));card.append(old)}
+  const form=node('div',undefined,'decision'),fields=node('div',undefined,'fields');
+  const actionLabel=node('label','你的決定'),select=node('select');select.setAttribute('aria-label','你的決定：'+c.term);
+  for(const [v,t] of Object.entries(actions)){const opt=node('option',t);opt.value=v;select.append(opt)}select.value=d.action;select.onchange=()=>edit(c,'action',select.value);actionLabel.append(select);
+  const scopeLabel=node('label','適用領域／語境'),scope=node('input');scope.value=d.scope;scope.oninput=()=>edit(c,'scope',scope.value);scopeLabel.append(scope);fields.append(actionLabel,scopeLabel);form.append(fields);
+  const candidates=node('div',undefined,'candidates');candidates.append(node('p','若採用特定用法，請勾選候選紀錄：'));
+  for(const r of c.candidates){const label=node('label'),input=node('input');input.type='checkbox';input.checked=d.selected_ids.includes(r.id);input.onchange=()=>{const ids=new Set(drafts[c.id]?.selected_ids||d.selected_ids);input.checked?ids.add(r.id):ids.delete(r.id);edit(c,'selected_ids',[...ids])};label.append(input,document.createTextNode(` ${labels[r.source]||r.source}：${r.tw.join(' / ')}（${r.id}）`));candidates.append(label)}form.append(candidates);
+  const rationaleLabel=node('label','理由或補充例句'),reason=node('textarea');reason.value=d.rationale;reason.placeholder='請說明適用語境與判斷依據';reason.oninput=()=>edit(c,'rationale',reason.value);rationaleLabel.append(reason);form.append(rationaleLabel);
+  if(disposition(c)!=='pending'&&!drafts[c.id]){const more=node('details');more.append(node('summary','另作整組決定（選填）'),form);card.append(more)}else card.append(form);$('list').append(card);
+ }if(!rows.length)$('list').append(node('p','此範圍沒有尚需判斷的項目。可切換處理狀態查閱已補答與複核參考。'));
+}
+for(const k of Object.keys(kinds)){const opt=node('option',kinds[k]);opt.value=k;$('kind').append(opt)}
+for(const id of ['query','kind','status','group','work'])$(id).addEventListener('input',()=>{if(id==='kind'&&$('kind').value==='glossary_variants')$('group').value='supplementary';if(id==='group')$('kind').value='';page=0;render()});
+$('prev').onclick=()=>{page--;render()};$('next').onclick=()=>{page++;render()};
+function showOutput(value,filename,title,description){
+ exportFilename=filename;$('export-title').textContent=title;$('export-description').textContent=description;$('export-text').value=JSON.stringify(value,null,2);$('export-status').textContent='';$('export-panel').hidden=false;$('export-panel').scrollIntoView({block:'start'});
+}
+function showBackup(){showOutput(backupValue(),'review-drafts.json','全部草稿備份',`包含 ${Object.keys(drafts).length} 筆草稿與保留的舊版本，不要求理由或覆核者姓名。可下載檔案，或複製下方 JSON 貼到對話中。草稿不會被當成已完成的人工決定。`)}
+$('backup').onclick=()=>{persist();showBackup()};
+$('export').onclick=()=>{
+ const {ready,incomplete,unknown}=collect(),reviewer=$('reviewer').value.trim();updateProgress();
+ if(!reviewer||!ready.length){showBackup();$('message').textContent=(!reviewer?'匯出決定前請填寫覆核者姓名。':'目前沒有填寫完整的決定，請查看待補資料。')+' 已先整理全部草稿，可從下方下載或複製。';$('message').className='error';if(incomplete.length)$('issues').open=true;return}
+ const stamp=new Date().toISOString(),decisions=ready.map(({c,d})=>({conflict_id:c.id,fingerprint:c.fingerprint,action:d.action,selected_ids:d.selected_ids,scope:d.scope,rationale:d.rationale,reviewed_by:reviewer,reviewed_at:stamp}));
+ showOutput(decisions,'review-decisions.json','已完成的覆核決定',`已整理 ${decisions.length} 筆決定；另有 ${incomplete.length+unknown.length} 筆未完成草稿繼續保留。下載此 JSON 後可用 review-conflicts.py 匯入專案。`);
+ $('message').textContent=storageWarning||`已整理 ${decisions.length} 筆完整決定，未完成項目不會擋住這次匯出。`;$('message').className=storageWarning?'error':'';
+};
+$('download').onclick=()=>{
+ try{const blob=new Blob([$('export-text').value],{type:'application/json'}),url=URL.createObjectURL(blob),a=node('a');a.href=url;a.download=exportFilename;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('export-status').textContent='已請瀏覽器下載 '+exportFilename+'；若沒有出現檔案，可直接複製 JSON。'}catch(e){$('export-status').textContent='無法啟動下載，請複製下方 JSON。'}
+};
+function selectOutput(){const area=$('export-text');area.focus();area.select();area.setSelectionRange(0,area.value.length)}
+$('select-text').onclick=()=>{selectOutput();$('export-status').textContent='已選取全文，按 Ctrl+C（Mac：⌘C）即可複製。'};
+$('copy').onclick=async()=>{
+ try{await navigator.clipboard.writeText($('export-text').value);$('export-status').textContent='已複製 JSON。'}catch(e){selectOutput();$('export-status').textContent='瀏覽器不允許直接複製，已選取全文；按 Ctrl+C（Mac：⌘C）即可。'}
+};
+function restoreBackup(text){
+ const value=validateBackup(JSON.parse(text)),next={...drafts};let restored=0,different=0;
+ for(const [id,d] of Object.entries(value.drafts)){
+  if(!Object.hasOwn(next,id)){Object.defineProperty(next,id,{value:d,writable:true,enumerable:true,configurable:true});restored++}
+  else if(JSON.stringify(next[id])!==JSON.stringify(d))different++;
+ }
+ archives.push(...value.archives,{imported_at:new Date().toISOString(),run_id:value.run_id,reviewer:value.reviewer,drafts:value.drafts});drafts=next;
+ if(!$('reviewer').value)$('reviewer').value=value.reviewer;
+ persist();render();updateProgress();$('message').textContent=`已還原 ${restored} 筆草稿。`+(different?`${different} 筆已有不同草稿，已保留目前選擇，匯入版本另存於備份。`:'')+(storageWarning?' '+storageWarning:'');$('message').className=storageWarning?'error':'';
+}
+$('restore-paste').onclick=()=>{try{restoreBackup($('restore-text').value)}catch(e){$('message').textContent=e.message;$('message').className='error'}};
+$('restore-file').onchange=async()=>{try{const file=$('restore-file').files[0];if(!file)return;if(file.size>10*1024*1024)throw Error('備份檔超過 10 MB，請先保留檔案並確認內容。');restoreBackup(await file.text())}catch(e){$('message').textContent=e.message;$('message').className='error'}};
+$('reviewer').oninput=()=>{persist();updateProgress();if(!$('export-panel').hidden)$('export-status').textContent='覆核者姓名已有變更；請再次按備份或匯出，更新下方 JSON。'};
+for(const [label,value] of [['資料紀錄',data.record_count],['主要覆核項目',data.conflicts.filter(c=>c.review_group==='primary').length],['補充來源待查',data.conflicts.filter(c=>c.review_group==='supplementary').length],['整組已定案',data.conflicts.filter(c=>c.status==='resolved').length]]){const s=node('div',undefined,'stat');s.append(node('strong',value.toLocaleString()),node('span',label));$('stats').append(s)}
+const scoped=data.scoped_source_review||{},notes=data.assistant_sense_review||{};
+$('review-summary').textContent=`指定來源處理：${scoped.active_answers||0} 筆已補答；${scoped.held_source_count||0} 條來源配對暫停；${notes.reference_only_cases||0} 筆複核參考，不用重答。`+((scoped.stale_answers||0)+(notes.stale_or_missing_cases||0)?` 另有 ${scoped.stale_answers||0} 筆補答與 ${notes.stale_or_missing_cases||0} 筆複核筆記因證據變動而未套用。`:'')+' 補答不代表整組同義或已全部核准。';
+$('run').textContent='比對版本：'+data.run_id+'；產生時間：'+data.generated_at;
+render();
+updateProgress();
+if(recovered){persist();$('message').textContent=`已找回 ${recovered} 筆先前頁面的草稿；請先備份，再繼續覆核。`+(storageWarning?' '+storageWarning:'')}
+else if(storageWarning){$('message').textContent=storageWarning;$('message').className='error'}
+</script>
+</html>
