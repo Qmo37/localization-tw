@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>臺灣用語・接續審核</title>
+<style>
+:root{color-scheme:light;--paper:#f4f6f2;--ink:#223d39;--muted:#596e68;--line:#d6e0d8;--green:#186553;--pale:#e7f0e8;--amber:#8a5c19}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.7 system-ui,-apple-system,"Noto Sans CJK TC","Microsoft JhengHei",sans-serif}main{max-width:1160px;margin:auto;padding:38px 28px 50px}h1,h2,h3,p{margin:0 0 12px}h1{font-size:32px;letter-spacing:.035em}h2{font-size:25px}h3{font-size:18px}small,.muted{color:var(--muted)}.eyebrow{font-size:12px;letter-spacing:.16em;color:var(--green);font-weight:700}.lead{max-width:820px}.stats{display:flex;gap:12px;margin:22px 0;flex-wrap:wrap}.stat{padding:13px 21px;background:white;border:1px solid var(--line);border-radius:12px;min-width:160px}.stat strong{font-size:27px;display:block;line-height:1.2}.stat span{font-size:13px}.toolbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.toolbar input{max-width:210px}.panel{background:white;border:1px solid var(--line);border-radius:14px;padding:24px;margin:20px 0}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;align-items:start;margin-top:24px}.layout .panel{margin:0}.sidebar{position:sticky;top:18px;padding:18px}.question-nav{display:flex;flex-direction:column;gap:5px;margin-top:12px;max-height:64vh;overflow:auto}.question-nav button{text-align:left;border:0;background:transparent;padding:8px 10px;font-size:14px}.question-nav button[aria-current=true]{background:var(--pale);color:var(--green);font-weight:700}.question-nav .done{color:var(--green)}button,.button{font:inherit;font-size:14px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink);padding:9px 15px;cursor:pointer;text-decoration:none;display:inline-block}button:hover,.button:hover{border-color:var(--green);background:var(--pale)}button.primary{background:var(--green);color:white;border-color:var(--green)}button:disabled{opacity:.5;cursor:default}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #bc811f;outline-offset:3px}input,textarea,select{font:inherit;color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:8px;background:white}input[type=checkbox],input[type=radio]{accent-color:var(--green);width:18px;height:18px;flex:0 0 18px;margin:4px 0 0}textarea{width:100%;resize:vertical;min-height:95px}.description{white-space:pre-line;margin-bottom:20px}.tag{font-size:12px;display:inline-block;padding:3px 9px;border-radius:6px;background:var(--pale);color:var(--green);margin-bottom:12px}.pending{background:#faf0db;color:var(--amber)}fieldset{border:0;padding:0;margin:16px 0}legend{font-weight:650;margin-bottom:9px}.option{display:flex;gap:12px;padding:13px 15px;border:1px solid var(--line);border-radius:10px;margin:9px 0;cursor:pointer}.option:has(input:checked){border-color:var(--green);background:var(--pale)}.notes{display:block;font-weight:600;margin:20px 0 7px}.navigation{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px;margin-top:20px}.notice{font-size:14px;color:var(--muted);margin-top:12px;min-height:24px}.warning{padding:14px 16px;border-left:3px solid #c29140;background:#fff8ea;margin:16px 0;font-size:14px}details{margin:15px 0}summary{cursor:pointer;font-weight:650}a{color:var(--green)}.evidence{border:1px solid var(--line);border-radius:9px;padding:14px;margin:12px 0;font-size:14px;overflow-wrap:anywhere}.evidence .source{font-size:12px;color:var(--muted)}.evidence ol{padding-left:23px;margin:8px 0}.source-fields{display:flex;gap:14px;flex-wrap:wrap;font-size:13px}.table-scroll{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{font-size:12px;color:var(--muted)}td:first-child{white-space:nowrap}.check-option{display:flex;gap:9px;padding:7px 0}.row-note{font-size:13px}.concern{padding:12px 0;border-bottom:1px solid var(--line)}.concern:last-child{border-bottom:0}.concern p{font-size:14px}.export-text{font-family:ui-monospace,monospace;font-size:12px;min-height:210px}footer{font-size:12px;color:var(--muted);margin-top:32px;border-top:1px solid var(--line);padding-top:20px}progress{accent-color:var(--green);width:100%;height:7px;display:block;margin:18px 0 10px}[hidden]{display:none!important}.complete{padding:30px 0;text-align:center}#filter{width:100%}#export-panel{scroll-margin-top:20px}#save-status{overflow-wrap:anywhere}.record-details{min-width:180px}
+@media(max-width:760px){main{padding:22px 16px}.layout{grid-template-columns:minmax(0,1fr)}.sidebar{position:static}.question-nav{flex-direction:row;flex-wrap:wrap;max-height:170px}.question-nav button{font-size:12px;padding:7px}.panel{padding:18px}.stat{min-width:0;flex:1;padding:12px}.stat strong{font-size:25px}.stat span{font-size:12px}h1{font-size:27px}h2{font-size:22px}th,td{padding:9px 6px}.toolbar button{flex-grow:1}.toolbar label{width:100%}.toolbar input{max-width:100%}}
+@media print{.sidebar,.toolbar,.navigation,#restore-panel{display:none}.layout{display:block}details{display:block}body{background:white}.panel{break-inside:avoid}main{max-width:none}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">LOCALIZATION-TW / 接續人工審核</p>
+<h1>從上次的勾選繼續</h1>
+<p class="lead">截圖中能辨識的 <strong>52 筆勾選已帶入</strong>。只需補答 15 筆，另用 1 題確認既有勾選的共同含意。每題都有完整說明，選定方案就會保存，不必重填原本的表單。</p>
+<div class="stats"><div class="stat"><strong>52</strong><span>筆既有勾選已帶入</span></div><div class="stat"><strong id="remaining-count">16</strong><span>題尚未回答</span></div><div class="stat"><strong id="answered-count">0</strong><span>題已補答</span></div></div>
+<div class="toolbar"><button class="primary" id="save-html">儲存含答案的 HTML</button><button id="export-json">匯出答案 JSON</button><label>審核者（選填） <input id="reviewer" autocomplete="name" placeholder="姓名或暱稱"></label></div>
+<p id="save-status" class="notice" role="status" aria-live="polite"></p>
+<p class="muted"><small>填到一半也能儲存。完成後按「儲存含答案的 HTML」，把下載的檔案交回來即可；若下載沒有反應，下方也會顯示可複製的答案。</small></p>
+</header>
+<div class="layout">
+<aside class="panel sidebar" aria-label="題目導覽"><h3>待補確認</h3><label for="filter" class="muted">顯示題目</label><select id="filter"><option value="unanswered">只看未答</option><option value="all">全部 16 題</option></select><progress id="progress" max="16" value="0"></progress><small id="progress-label"></small><nav class="question-nav" id="question-nav"></nav></aside>
+<section class="panel" id="question-panel" aria-label="目前題目"></section>
+</div>
+<details class="panel" id="recovered-panel"><summary>已帶入的 52 筆勾選 · 不用逐筆重答</summary><p class="muted">以下保留截圖辨識出的候選；原本的下拉決定與理由讀不清楚，因此未代填。需要更正時才展開該筆；更正會另存，原始截圖紀錄仍保留。</p><div class="table-scroll"><table><thead><tr><th>原編號／詞彙</th><th>已帶入的候選</th><th>備註與更正</th></tr></thead><tbody id="recovered-rows"></tbody></table></div></details>
+<details class="panel" id="concerns-panel"><summary>我認為需要留意的配對 · 原始勾選已保留</summary><p class="muted">以下是供你判斷的建議，尚未當成你的答案。code、control、HD、via 等疑義已寫在各自的待答題目中；其餘可在「52 筆勾選的共同含意」補充例外。</p><div id="concerns"></div></details>
+<section class="panel" id="export-panel" hidden><h2>帶走這次的答案</h2><p id="export-description"></p><div class="toolbar"><button id="download-json">下載 JSON</button><button id="copy-json">複製答案</button><button id="select-json">選取全文</button></div><label for="export-text" class="notes">完整答案與已帶入的勾選</label><textarea id="export-text" class="export-text" readonly spellcheck="false"></textarea><p id="export-status" class="notice" role="status"></p></section>
+<details class="panel" id="restore-panel"><summary>從先前下載的答案接續</summary><p>含答案的 HTML 可以直接開啟。若手上是 JSON，也可以在這裡載入；僅接受這一份問卷的答案。</p><input id="restore-file" type="file" accept="application/json,.json"><label for="restore-text" class="notes">或貼上答案 JSON</label><textarea id="restore-text" spellcheck="false"></textarea><button id="restore-button">載入答案</button><p id="restore-status" class="notice" role="status"></p></details>
+<footer><p>來源順序：① 中華語文知識庫：臺灣慣用詞與兩岸詞義差異　② 教育部《國語辭典簡編本》：現代一般用語　③ Microsoft 術語庫、翻譯記憶庫等補充資料。</p><p>電腦作業系統的 process 依你的要求用「行程」；旅程安排另分義。此頁保存人工補答與截圖勾選，後續依答案整理義項；「待查」仍會保留待查。</p><p id="copyright"></p></footer>
+</main>
+<script id="payload" type="application/json">__PAYLOAD__</script>
+<script id="embedded-state" type="application/json">null</script>
+<script>
+'use strict';
+const data = JSON.parse(document.getElementById('payload').textContent);
+const originalHTML = '<!doctype html>\n' + document.documentElement.outerHTML;
+const questions = data.questions;
+const rows = data.transcription.rows;
+const restoredRows = rows.filter(row => row.observed_checked_ids.length);
+const embeddedState = JSON.parse(document.getElementById('embedded-state').textContent);
+const storageKey = 'localization-tw-followup:v1:' + data.bundle_id + ':' + (embeddedState?.snapshot_id || 'original');
+const $ = id => document.getElementById(id);
+const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const sourceName = value => ({linguipedia:'中華語文知識庫','moe-concised':'教育部《國語辭典簡編本》',microsoft:'Microsoft 術語庫','microsoft-termic':'Termic 術語庫','microsoft-tm':'翻譯記憶庫',project:'專案詞表'}[value] || value);
+let state = {version:1, bundle_id:data.bundle_id, reviewer:'', updated_at:null, answers:{}, overrides:{}};
+let currentId = questions[0].id;
+let saveProblem = '';
+function timestamp(){return new Date().toISOString();}
+function validateState(value){
+  if(!value || value.version !== 1 || value.bundle_id !== data.bundle_id || typeof value.reviewer !== 'string' || !value.answers || typeof value.answers !== 'object' || Array.isArray(value.answers) || !value.overrides || typeof value.overrides !== 'object' || Array.isArray(value.overrides)) throw Error('檔案格式或來源版本不符');
+  for(const [id, answer] of Object.entries(value.answers)){
+    const q = questions.find(item => item.id === id);
+    if(!q || !answer || typeof answer.note !== 'string' || ![null,'custom',...q.options.map((_,i) => 'option-'+i)].includes(answer.choice)) throw Error('題目或答案格式不符');
+  }
+  for(const [id, override] of Object.entries(value.overrides)){
+    const row = restoredRows.find(item => item.conflict_id === id);
+    if(!row || !override || override.fingerprint !== row.fingerprint || !Array.isArray(override.selected_ids) || new Set(override.selected_ids).size !== override.selected_ids.length || override.selected_ids.some(s => !row.candidates.some(c => c.source_id === s)) || typeof override.note !== 'string') throw Error('勾選資料與原始證據不符');
+  }
+  return value;
+}
+function isAnswered(q){const answer=state.answers[q.id];return !!answer && (q.options.some((_,i)=>answer.choice==='option-'+i) || (answer.choice==='custom' && !!answer.note.trim()));}
+function unanswered(){return questions.filter(q=>!isAnswered(q));}
+function persist(){
+  state.updated_at=timestamp();
+  try{localStorage.setItem(storageKey,JSON.stringify(state));saveProblem='';$('save-status').textContent='已自動儲存在這個瀏覽器。要帶走答案，請儲存含答案的 HTML。';}
+  catch(error){saveProblem='瀏覽器無法自動儲存；目前答案仍在本頁，請按「儲存含答案的 HTML」或複製答案。';$('save-status').textContent=saveProblem;}
+}
+function updateProgress(){
+  const left=unanswered().length,done=questions.length-left;
+  $('remaining-count').textContent=left;$('answered-count').textContent=done;$('progress').value=done;$('progress').max=questions.length;$('progress-label').textContent=`已補答 ${done} / ${questions.length} 題`;
+  const visible=$('filter').value==='all'?questions:unanswered();
+  $('question-nav').innerHTML=visible.map(q=>`<button type="button" data-question="${esc(q.id)}" aria-current="${q.id===currentId}" class="${isAnswered(q)?'done':''}">${isAnswered(q)?'✓ ':''}${esc(q.label)}</button>`).join('') || '<p class="muted">所有題目都已補答。可切換「全部 16 題」檢查。</p>';
+  document.querySelectorAll('[data-question]').forEach(button=>button.onclick=()=>openQuestion(button.dataset.question));
+}
+function sourceHTML(candidate,observed){
+  const definitions=(candidate.definitions||[]).map(d=>typeof d==='string'?d:(d.display||d.text||JSON.stringify(d)));
+  const pronunciation=(candidate.pronunciations||[]).map(p=>[p.bopomofo,p.pinyin].filter(Boolean).join(' / ')).join('；');
+  const url=candidate.url||'';
+  const link=/^https?:\/\//i.test(url)?`<a href="${esc(url)}" target="_blank" rel="noopener noreferrer">查看來源</a>`:`<span>${esc(url)}</span>`;
+  const status=observed==='checked'?'截圖有勾':observed==='not-checked'?'截圖未勾':observed==='not-visible'?'勾選區未拍到':'截圖未見勾選';
+  return `<article class="evidence"><p class="source">${esc(sourceName(candidate.source))} · ${esc(status)}</p><h3>${esc((candidate.tw||[]).join('／'))} <small>${esc((candidate.en||[]).join(' / '))}</small></h3><div class="source-fields"><span>領域：${esc(candidate.domain||'未提供')}</span><span>詞性：${esc(candidate.part_of_speech||'未提供')}</span>${pronunciation?`<span>讀音：${esc(pronunciation)}</span>`:''}</div>${definitions.length?`<ol>${definitions.map(d=>`<li>${esc(d)}</li>`).join('')}</ol>`:'<p class="muted">來源未提供釋義。</p>'}${candidate.product?`<p>產品：${esc(candidate.product)}</p>`:''}<details><summary>來源識別與版本</summary><p>${esc(candidate.id)}</p><p>${esc(candidate.source_version||'未提供版本')}</p>${link}</details></article>`;
+}
+function concernHTML(concern){return `<div class="concern"><h3>${esc(concern.title)}</h3><p>${esc(concern.text)}</p><small>原編號：${concern.numbers.join('、')}</small></div>`;}
+function renderQuestion(){
+  const q=questions.find(item=>item.id===currentId);
+  if(!q){$('question-panel').innerHTML='<div class="complete"><span class="tag">補答已完成</span><h2>答案已整理好</h2><p>請按上方「儲存含答案的 HTML」，把下載的檔案交回來即可。</p><p class="muted">選為待查的項目，後續仍保留待查。</p></div>';return;}
+  const answer=state.answers[q.id]||{choice:null,note:''};
+  const row=rows.find(item=>item.number===q.number);
+  const relevant=q.number===null?data.concerns:data.concerns.filter(c=>c.numbers.includes(q.number));
+  $('question-panel').innerHTML=`<span class="tag ${isAnswered(q)?'':'pending'}" id="question-status">${isAnswered(q)?'已補答':'尚未回答'}</span><h2 tabindex="-1" id="question-title">${esc(q.label)}</h2><p class="description">${esc(q.title)}</p>${q.number===null?'<div class="warning">這題確認勾選的共同含意；若有例外或想修正下列義項配對，請在補充欄寫原編號與處理方式。不必重新勾選 52 筆。</div>':''}<fieldset><legend>你的處理方式</legend>${q.options.map((option,i)=>`<label class="option"><input type="radio" name="choice" value="option-${i}" ${answer.choice==='option-'+i?'checked':''}><span>${esc(option)}</span></label>`).join('')}<label class="option"><input type="radio" name="choice" value="custom" ${answer.choice==='custom'?'checked':''}><span>自行說明處理方式（請填下方補充）</span></label></fieldset><label class="notes" for="answer-note">補充、例外或修改理由 <small id="note-requirement">${answer.choice==='custom'?'（必填）':'（選填）'}</small></label><textarea id="answer-note" placeholder="例如：第 59 筆保留技術譯名「音訊」，但不連結「消息」的辭典義。">${esc(answer.note)}</textarea><div class="navigation"><button id="clear-answer">清除本題答案</button><button class="primary" id="next-question">下一題未答 →</button></div>${row?`<details id="question-evidence"><summary>完整來源釋義 · ${row.evidence.length} 筆候選</summary>${row.evidence.map(c=>sourceHTML(c,row.candidates.find(o=>o.source_id===c.id)?.observed)).join('')}</details>`:''}${relevant.length?`<details ${q.number===null?'open':''}><summary>相關的義項配對說明</summary>${relevant.map(concernHTML).join('')}</details>`:''}`;
+  document.querySelectorAll('input[name=choice]').forEach(input=>input.onchange=()=>{
+    state.answers[q.id]={choice:input.value,note:$('answer-note').value,answered_at:timestamp()};
+    persist();refreshAnswer(q);
+  });
+  $('answer-note').oninput=()=>{
+    state.answers[q.id]={choice:state.answers[q.id]?.choice||null,note:$('answer-note').value,answered_at:timestamp()};
+    persist();refreshAnswer(q);
+  };
+  $('clear-answer').onclick=()=>{delete state.answers[q.id];persist();renderQuestion();updateProgress();};
+  $('next-question').onclick=()=>{
+    const index=questions.findIndex(item=>item.id===q.id);
+    const next=[...questions.slice(index+1),...questions.slice(0,index+1)].find(item=>!isAnswered(item));
+    openQuestion(next?.id||null);
+  };
+}
+function refreshAnswer(q){const complete=isAnswered(q);$('question-status').textContent=complete?'已補答':'尚未回答';$('question-status').className='tag'+(complete?'':' pending');$('note-requirement').textContent=state.answers[q.id]?.choice==='custom'?'（必填）':'（選填）';updateProgress();}
+function openQuestion(id){currentId=id;renderQuestion();updateProgress();$('question-title')?.focus({preventScroll:true});$('question-panel').scrollIntoView({behavior:'smooth',block:'start'});}
+function effectiveIds(row){return state.overrides[row.conflict_id]?.selected_ids||row.observed_checked_ids;}
+function renderRecovered(){
+  $('recovered-rows').innerHTML=restoredRows.map(row=>{
+    const selected=effectiveIds(row), override=state.overrides[row.conflict_id];
+    return `<tr data-row="${row.number}"><td><strong>${row.number}. ${esc(row.term)}</strong></td><td id="row-summary-${row.number}">${esc(row.candidates.filter(c=>selected.includes(c.source_id)).map(c=>c.tw.join('／')).join('；'))||'未保留候選'}</td><td><p class="row-note">${esc(row.assistant_review_note)}</p><details class="record-details"><summary>查看／更正本筆</summary>${row.candidates.map(c=>`<label class="check-option"><input type="checkbox" data-row-id="${esc(row.conflict_id)}" value="${esc(c.source_id)}" ${selected.includes(c.source_id)?'checked':''}><span>${esc(c.tw.join('／'))}<br><small>${esc(sourceName(c.source))} · 原始截圖${c.observed==='checked'?'有勾':'未勾'}</small></span></label>`).join('')}<label class="notes" for="row-note-${row.number}">本筆例外說明（選填）</label><textarea id="row-note-${row.number}" data-override-note="${esc(row.conflict_id)}">${esc(override?.note||'')}</textarea><details><summary>完整來源釋義</summary>${row.evidence.map(c=>sourceHTML(c,row.candidates.find(o=>o.source_id===c.id)?.observed)).join('')}</details></details></td></tr>`;
+  }).join('');
+  function updateRow(row){const selected=[...document.querySelectorAll('input[data-row-id]')].filter(input=>input.dataset.rowId===row.conflict_id && input.checked).map(input=>input.value);state.overrides[row.conflict_id]={fingerprint:row.fingerprint,selected_ids:selected,note:$('row-note-'+row.number).value,updated_at:timestamp()};persist();$('row-summary-'+row.number).textContent=row.candidates.filter(c=>selected.includes(c.source_id)).map(c=>c.tw.join('／')).join('；')||'未保留候選';}
+  document.querySelectorAll('input[data-row-id]').forEach(input=>input.onchange=()=>updateRow(restoredRows.find(row=>row.conflict_id===input.dataset.rowId)));
+  document.querySelectorAll('[data-override-note]').forEach(input=>input.oninput=()=>updateRow(restoredRows.find(row=>row.conflict_id===input.dataset.overrideNote)));
+}
+function exportBundle(){
+  return {kind:'localization-tw-review-followup',version:1,bundle_id:data.bundle_id,exported_at:timestamp(),human_decisions_applied:false,
+    status:unanswered().length?'partially-answered':'followup-answered',unanswered_question_ids:unanswered().map(q=>q.id),
+    state:JSON.parse(JSON.stringify(state)),context_rules:data.context_rules,assistant_concerns:data.concerns,
+    questions:questions.map(q=>({...q,answer:state.answers[q.id]?{...state.answers[q.id],text:q.options[Number(state.answers[q.id].choice?.replace('option-',''))]||null}:null,status:isAnswered(q)?'answered':'awaiting-user-response'})),
+    screenshot_transcription:data.transcription};
+}
+function showExport(){
+  const bundle=exportBundle();$('export-panel').hidden=false;$('export-text').value=JSON.stringify(bundle,null,2);
+  $('export-description').textContent=`已補答 ${questions.length-unanswered().length} 題，剩下 ${unanswered().length} 題。原始 52 筆勾選、此次更正與逐題答案一併保留。尚未回答的題目仍為空白。`;
+  return bundle;
+}
+function download(content,type,name){const url=URL.createObjectURL(new Blob([content],{type}));const anchor=document.createElement('a');anchor.href=url;anchor.download=name;document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),30000);}
+function safeJSON(value){return JSON.stringify(value).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');}
+function saveHTML(){
+  persist();showExport();
+  const portableState={...state,snapshot_id:timestamp()+'-'+Math.random().toString(36).slice(2)};
+  const html=originalHTML.replace(/(<script id="embedded-state" type="application\/json">)[\s\S]*?(<\/script>)/,(_,open,close)=>open+safeJSON(portableState)+close);
+  download(html,'text/html;charset=utf-8','review-followup-answered.html');
+  $('export-status').textContent='已發出含答案 HTML 的下載請求。若沒有看到下載檔案，可複製下方 JSON。';
+  $('export-panel').scrollIntoView({behavior:'smooth'});
+}
+function restore(value){
+  if(value.kind!=='localization-tw-review-followup' || value.bundle_id!==data.bundle_id) throw Error('這不是本份問卷的答案檔');
+  const incoming=validateState(value.state);
+  // Merge only present answers/overrides, retaining work already done here.
+  state={...state,reviewer:incoming.reviewer||state.reviewer,answers:{...state.answers,...incoming.answers},overrides:{...state.overrides,...incoming.overrides}};
+  $('reviewer').value=state.reviewer;persist();currentId=unanswered()[0]?.id||null;renderQuestion();renderRecovered();updateProgress();
+  $('restore-status').textContent='答案已載入；檔案未包含的既有答案仍保留。';
+}
+function tryRestore(text){try{restore(JSON.parse(text));}catch(error){$('restore-status').textContent='無法載入：'+error.message+'。現有答案未變更。';}}
+try{
+  // Each portable snapshot has its own storage key, so unrelated browser drafts
+  // cannot replace its answers; later edits to this snapshot survive reloading.
+  if(embeddedState){state=validateState(embeddedState);$('save-status').textContent='已載入這份 HTML 內的答案。';}
+  const stored=localStorage.getItem(storageKey);
+  if(stored){state=validateState(JSON.parse(stored));$('save-status').textContent='已接續這個瀏覽器先前的答案。';}
+  else if(!embeddedState) $('save-status').textContent='52 筆既有勾選已帶入；15 題與 1 題共同原則仍待你補答。';
+}catch(error){$('save-status').textContent='先前的儲存資料無法讀取；截圖勾選仍完整帶入。可從下方載入已下載的 JSON。';}
+currentId=unanswered()[0]?.id||null;
+$('reviewer').value=state.reviewer;$('reviewer').oninput=()=>{state.reviewer=$('reviewer').value;persist();};
+$('filter').onchange=()=>{const available=$('filter').value==='all'?questions:unanswered();if(!available.some(q=>q.id===currentId))currentId=available[0]?.id||null;renderQuestion();updateProgress();};
+$('save-html').onclick=saveHTML;
+$('export-json').onclick=()=>{showExport();download($('export-text').value,'application/json;charset=utf-8','review-followup-answers.json');$('export-status').textContent='已發出 JSON 下載請求；也可直接複製下方答案。';$('export-panel').scrollIntoView({behavior:'smooth'});};
+$('download-json').onclick=()=>{showExport();download($('export-text').value,'application/json;charset=utf-8','review-followup-answers.json');};
+$('select-json').onclick=()=>{$('export-text').focus();$('export-text').select();$('export-status').textContent='已選取全文，可直接複製。';};
+$('copy-json').onclick=async()=>{showExport();try{await navigator.clipboard.writeText($('export-text').value);$('export-status').textContent='已複製完整答案。';}catch(error){$('export-text').focus();$('export-text').select();$('export-status').textContent='無法自動複製，已選取全文，請使用瀏覽器的複製功能。';}};
+$('restore-button').onclick=()=>tryRestore($('restore-text').value);
+$('restore-file').onchange=async()=>{try{const file=$('restore-file').files[0];if(file)tryRestore(await file.text());}catch(error){$('restore-status').textContent='無法讀取檔案；現有答案未變更。';}};
+$('concerns').innerHTML=data.concerns.map(concernHTML).join('');$('copyright').textContent=data.notice;
+renderQuestion();renderRecovered();updateProgress();
+window.addEventListener('beforeunload',event=>{if(saveProblem){event.preventDefault();event.returnValue='';}});
+</script>
+</body>
+</html>
